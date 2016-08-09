@@ -1,0 +1,4 @@
+
+nping --tcp -p 22 --flags syn --ttl 2 192.168.1.1
+
+nping --icmp --icmp-type time --delay 500ms 192.168.1.1

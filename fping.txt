@@ -1,0 +1,19 @@
+Alive Hosts on Networks
+
+$ fping -c1 -gds 192.168.2.0/24 2>&1| egrep -v "ICMP|xmt"
+
+phineas.alrac.net   : [0], 84 bytes, 2.43 ms (2.43 avg, 0% loss)
+franklin.alrac.net  : [0], 84 bytes, 0.53 ms (0.53 avg, 0% loss)
+fatfreddy.alrac.net : [0], 84 bytes, 3.42 ms (3.42 avg, 0% loss)
+
+     256 targets
+       3 alive
+     253 unreachable
+       0 unknown addresses
+
+       0 timeouts (waiting for response)
+
+ 0.53 ms (min round trip time)
+ 2.12 ms (avg round trip time)
+ 3.42 ms (max round trip time)
+       10.310 sec (elapsed real time)

@@ -1,0 +1,2 @@
+
+python Responder.py -i 192.168.142.128 -I eth0 -d SMB -b 0 -r 1 -v

@@ -1,0 +1,17 @@
+192.168.1.100
+192.168.1.19
+192.168.1.102
+192.168.2.1
+192.168.0.2
+
+sort -t . -k 3,3n -k 4,4n /path/to/file
+
+192.168.0.2
+192.168.1.19
+192.168.1.100
+192.168.1.102
+192.168.2.1
+
+    -t : Set field to . (dot) as our IPs separated by dot symbol
+    -n : Makes the program sort according to numerical value
+    -k opts: Sort data / fields using the given column number. For example, the option -k 2 made the program sort using the second column of data. The option -k 3,3n -k 4,4n sorts each column. First it will sort 3rd column and then 4th column.

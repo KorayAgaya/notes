@@ -1,0 +1,13 @@
+Print Host interfaces and Routes
+
+nmap --iflist
+
+Starting Nmap 4.11 ( http://www.insecure.org/nmap/ ) at 2013-11-11 17:07 EST
+************************INTERFACES************************
+DEV  (SHORT) IP/MASK          TYPE     UP MAC
+lo   (lo)    127.0.0.1/8      loopback up
+eth0 (eth0)  192.168.0.100/24 ethernet up 08:00:27:11:C7:89
+**************************ROUTES**************************
+DST/MASK      DEV  GATEWAY
+192.168.0.0/0 eth0
+169.254.0.0/0 eth0

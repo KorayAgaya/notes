@@ -1,1 +1,2 @@
-aa
+
+sed -e 's/\s\+/,/g' tum_hosts.txt > modified.txt

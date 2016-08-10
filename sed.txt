@@ -1,2 +1,4 @@
 
-sed -e 's/\s\+/,/g' tum_hosts.txt > modified.txt
+sed -e 's/\s\+/,/g' tum_hosts.txt > modified.txt   'remove blank and add comma'
+
+sed 's/,//g' tum_hosts.txt > modified.txt 'remove comma'

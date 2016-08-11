@@ -1,0 +1,31 @@
+Launch an interactive command prompt on \\workstation64, the CMD prompt window will appear locally:
+
+psexec \\workstation64 cmd
+
+Execute a program that is already installed on the remote system:
+
+psexec \\workstation64 "c:\Program Files\test.exe"
+
+Connect to workstation64 and run IPCONFIG to display the remote PC's IP address:
+
+psexec \\workstation64 ipconfig
+
+Connect to workstation64 and list a directory:
+
+psexec \\workstation64 -s cmd /c dir c:\work
+
+Connect to workstation64 and copy a file from another server:
+
+psexec \\workstation64 -s cmd /c copy \\server21\share45\file.ext c:\localpath
+
+Execute IpConfig on the remote system, and display the output locally:
+
+psexec \\workstation64 ipconfig /all
+
+Copy the program test.exe to the remote system and execute it interactively, running under the account DannyGlover:
+
+psexec \\workstation64 -c test.exe -u DannyGlover -p Pa55w0rd
+
+Run Internet Explorer on the local machine but with limited-user privileges:
+
+psexec -l -d "c:\program files\internet explorer\iexplore.exe"

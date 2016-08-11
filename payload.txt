@@ -1,1 +1,3 @@
-test
+set rhosts file:/path/to/file
+
+

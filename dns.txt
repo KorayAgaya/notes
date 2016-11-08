@@ -1,5 +1,7 @@
 DNS
 
+# dig @ns1.example.com example.com axfr
+Dns transferini ile subdomainleri tespit edilmesi açıkmı kontrol edilir
 
 # General
 
@@ -38,3 +40,33 @@ nslookup www.nsa.gov <nameserver IP>
 # Spoofed request amplification DDoS
 
 for i in `cat 53.txt`; do dig @"$i" . NS; done > AmpDDoS.txt
+
+------------------------------------------------------------------------------------------------------
+
+Fierce
+
+fierce.pl -dns xxx.com
+
+http://ha.ckers.org/fierce/ adresinden download edebilir ve kullanımı ile ilgili detaylı bilgiye erişebilirsiniz.
+
+DNSEnum
+
+dnsenum.pl xxx.com
+
+http://code.google.com/p/dnsenum/ adresinden indirebilirsiniz.
+
+DNSWalk
+
+dnswalk xxx.com. (domain sonunda nokta olmalı, olmaz ise çalışmaz.)
+
+http://sourceforge.net/projects/dnswalk/ adresinden indirebilirsiniz.
+
+DNSMap
+
+dnsmap xxx.com
+
+http://code.google.com/p/dnsmap/ adresinden indirebilirsiniz.
+
+THEHarvester
+
+theHarvester.py -d xxx.com -l 500 -b google

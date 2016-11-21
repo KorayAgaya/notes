@@ -11,6 +11,18 @@ hydra -t 128 -l user_name -V -x '4:4:aA1"@#$!()=`~?><;:%^&*_-+/,.\ ' ip_address 
 
 
 
+/usr/share/wordlists/rockyou.txt.gz
+====================================
+
+cat rockyou.txt | sort | uniq | pw-inspector -m 8 -M 63 > kalitut.txt
+
+
+GITHUB
+=======
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+
+
 WORDLIST LOCATE ON KALI
 =======================
 /opt/Teeth/static/OWA-password-list.txt

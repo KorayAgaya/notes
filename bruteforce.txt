@@ -13,6 +13,9 @@ hydra -t 128 -l user_name -V -x '4:4:aA1"@#$!()=`~?><;:%^&*_-+/,.\ ' ip_address 
 
 /usr/share/wordlists/rockyou.txt.gz
 ====================================
+The password inside this file include password's with more and less then 8 characters
+so if you want to use it for WPA2 penetration it's better to make a dictionary that contain passwords with minimum 8 characters  so it become a  wpa dictionary
+To do that type this commend :
 
 cat rockyou.txt | sort | uniq | pw-inspector -m 8 -M 63 > kalitut.txt
 

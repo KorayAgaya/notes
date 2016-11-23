@@ -1,5 +1,35 @@
 DNS
 
+
+dnsrecon
+=========
+git clone git://github.com/darkoperator/dnsrecon.git
+
+./dnsrecon.py -d weberdns.de -z
+
+Performing General Enumeration of Domain: sshfp.net
+DNSSEC is configured for sshfp.net
+DNSKEYs:
+[*]      SOA ns1.weberdns.de 80.154.108.230
+[*]      NS ns3.weberdns.de 193.24.225.53
+[*]      Bind Version for 193.24.225.53 9.9.5-3ubuntu0.8-Ubuntu
+
+
+dnssecwalk
+===========
+dnssecwalk 8.8.8.8 weberdns.de
+
+Starting DNSSEC walking on server 8.8.8.8 about weberdns.de.
+Found: 16a.weberdns.de.
+Found: 16aaaa.weberdns.de.
+Found: 16dual.weberdns.de.
+Found: 32a.weberdns.de.
+Found: 32aaaa.weberdns.de.
+Found: 32aaaa-long.weberdns.de.
+Found: 32dual.weberdns.de.
+Found: 32dual-long.weberdns.de.
+
+
 # dig @ns1.example.com example.com axfr
 Dns transferini ile subdomainleri tespit edilmesi açıkmı kontrol edilir
 

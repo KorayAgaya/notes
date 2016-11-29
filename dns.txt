@@ -2,7 +2,13 @@ DNS
 
 dnsrecon
 =========
+sudo apt-get install libavahi-compat-libdnssd1 git-core python-setuptools
+sudo easy_install netaddr
+sudo easy_install dnspython
 git clone git://github.com/darkoperator/dnsrecon.git
+cd dnsrecon/
+./dnsrecon.py
+
 
 ./dnsrecon.py -d weberdns.de -z
 

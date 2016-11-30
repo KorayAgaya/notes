@@ -1,0 +1,15 @@
+Local Port Forwading
+=====================
+
+ssh -L 2338:IC_IP:3389 ksftp_user@sftp.XXXXX.com.tr -N
+
+and 
+
+rdesktop localhost:2338
+
+
+
+=====================
+
+
+

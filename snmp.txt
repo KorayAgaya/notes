@@ -1,5 +1,6 @@
 SNMP
 
+nmap 10.0.0.1 –Pn –sU –p 161 -sV
 
 # Default or Guessable SNMP Community Strings
 

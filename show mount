@@ -1,0 +1,4 @@
+nfs-common
+==========
+
+showmount -e X.X.X.X

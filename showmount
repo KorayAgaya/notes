@@ -1,0 +1,7 @@
+nfs-common
+==========
+
+showmount -e X.X.X.X
+
+
+mount -t nfs X.X.X.X:/volume1/multimedia /mnt/nfs

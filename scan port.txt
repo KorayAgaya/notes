@@ -1,1 +1,6 @@
-3050 - 3051 Firebird Database Server
+
+
+masscan 0.0.0.0/0 -pU:161 --banners  #  SNMP
+
+masscan 0.0.0.0/0 -p3050,3051 --banners  # Firebird Database Server
+

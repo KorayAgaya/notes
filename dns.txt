@@ -20,8 +20,8 @@ DNSKEYs:
 [*]      Bind Version for 193.24.225.53 9.9.5-3ubuntu0.8-Ubuntu
 
 
-dnssecwalk
-===========
+dnssecwalk ( use atk6-dnssecwalk )
+===================================
 dnssecwalk 8.8.8.8 weberdns.de
 
 Starting DNSSEC walking on server 8.8.8.8 about weberdns.de.

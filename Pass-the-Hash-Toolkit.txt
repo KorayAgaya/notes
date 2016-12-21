@@ -1,0 +1,8 @@
+pth-net  
+pth-rpcclient  
+pth-smbclient  
+pth-smbget  
+pth-sqsh  
+pth-winexe  
+pth-wmic  
+pth-wmis

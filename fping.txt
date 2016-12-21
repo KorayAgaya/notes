@@ -1,4 +1,4 @@
-Alive Hosts on Networks
+Alive Hosts on Networks ( -A Parametresi IP sinide yazıyor yanında ) 
 
 $ fping -c1 -gds 192.168.2.0/24 2>&1| egrep -v "ICMP|xmt"
 

@@ -1,0 +1,7 @@
+Windows
+=======
+nslookup -> set type=any -> ls -d blah.com
+
+Linux
+=======
+dig axfr blah.com @ns1.blah.com

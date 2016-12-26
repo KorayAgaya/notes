@@ -5,6 +5,8 @@ netsh -r <remote machine> interface ip set dns "local area connection" static <i
 
 netsh -r REMOTE_MACHINE_NAME interface ip show config
 
+netsh -r CLIENT_IP -u DOMAIN_NAME/USERNAME -p *******
+
 View İnterface
 ===============
 
@@ -59,6 +61,13 @@ Viewing Open Port on Firewall
 ==============================
 
 netsh firewall show portopening
+
+RPV View
+============
+
+netsh rpc show interface
+
+
 
 
 

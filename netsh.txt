@@ -7,6 +7,7 @@ netsh -r REMOTE_MACHINE_NAME interface ip show config
 
 netsh -r CLIENT_IP -u DOMAIN_NAME/USERNAME -p *******
 
+netsh -r CLIENT_IP -u DOMAIN_NAME\USERNAME -p ******* lan show config
 
 How to export and import network configuration to a file
 ========================================================

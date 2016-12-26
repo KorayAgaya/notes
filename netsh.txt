@@ -7,6 +7,19 @@ netsh -r REMOTE_MACHINE_NAME interface ip show config
 
 netsh -r CLIENT_IP -u DOMAIN_NAME/USERNAME -p *******
 
+
+How to export and import network configuration to a file
+========================================================
+
+Export
+------
+netsh –c interface dump > test.txt
+
+Import
+------
+netsh –f test.txt
+
+
 View İnterface
 ===============
 
@@ -66,8 +79,3 @@ RPV View
 ============
 
 netsh rpc show interface
-
-
-
-
-

@@ -1,0 +1,43 @@
+Connect to Remote PC
+==================
+
+netsh -r <remote machine> interface ip set dns "local area connection" static <ip address>
+
+View İnterface
+===============
+
+netsh interface ipv4 show interface
+
+netsh interface ip show addresses
+netsh interface ip show route
+netsh interface ip show neighbors
+netsh diag show all
+
+Add Route 
+===========
+
+netsh interface ipv4 add route ‘subnet’ “İnterfaceADI” ‘gateway’
+
+Delete Route
+============
+
+netsh interface ipv4 delete route ‘subnet’ “İnterfaceADI” ‘gateway’
+
+
+View Route Table
+================
+
+netsh interface ipv4 show route
+
+route print
+
+View Firewall Status
+====================
+
+netsh firewall show opmode
+
+Change Firewall Status
+=====================
+
+netsh firewall set opmode disable
+

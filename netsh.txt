@@ -3,6 +3,8 @@ Connect to Remote PC
 
 netsh -r <remote machine> interface ip set dns "local area connection" static <ip address>
 
+netsh -r REMOTE_MACHINE_NAME interface ip show config
+
 View İnterface
 ===============
 
@@ -34,6 +36,10 @@ netsh interface ipv4 show route
 
 route print
 
+Add DNS Server Second IP
+========================
+
+netsh interface ip add dns “Local Area Connection” static 192.168.0.2
 View Firewall Status
 ====================
 

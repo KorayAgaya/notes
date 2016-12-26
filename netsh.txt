@@ -18,6 +18,9 @@ Add Route
 
 netsh interface ipv4 add route ‘subnet’ “İnterfaceADI” ‘gateway’
 
+route add 192.168.2.0 MASK 255.255.255.0 192.168.2.200
+            SUBNET                           GATEWAY
+
 Delete Route
 ============
 

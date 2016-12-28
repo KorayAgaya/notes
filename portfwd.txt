@@ -1,0 +1,14 @@
+
+https://www.sans.org/reading-room/whitepapers/testing/post-exploitation-metasploit-pivot-port-33909
+
+
+portfwd add -L 127.0.0.1 -l 2222 -r 10.40.X.X -p 22
+[*] Local TCP relay created: 127.0.0.1:22 <-> 10.40.X.X:22
+
+portfwd add -l 25001 -p 23 -r 192.168.X.X
+[*] Local TCP relay created: 0.0.0.0:25001 <-> 192.168.0.9:23
+
+portfwd delete -l 8000 -p 80 -r 192.168.X.X
+[*] Local TCP relay created: 0.0.0.0:8000 <-> 192.168.X.X:80
+
+

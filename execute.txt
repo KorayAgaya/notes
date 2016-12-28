@@ -1,1 +1,2 @@
- execute -H -c -i -f cmd.exe
+
+meterpreter > execute -H -c -i -f cmd.exe

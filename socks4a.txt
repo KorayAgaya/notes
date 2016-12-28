@@ -1,4 +1,24 @@
-..
 
 
 https://pen-testing.sans.org/blog/2012/04/26/got-meterpreter-pivot
+
+======================================
+
+msf> route add 192.168.158.0 255.255.255.0 1
+
+msf > use auxiliary/server/socks4a
+msf auxiliary(socks4a) > set SRVHOST 127.0.0.1
+msf auxiliary(socks4a) > set SRVPORT 1080
+msf auxiliary(socks4a) > run
+[*] Auxiliary module execution completed
+[*] Starting the socks4a proxy server
+
+===================================
+
+vim /etc/proxychains.conf
+
+socks4  127.0.0.1 1080
+
+====================================
+
+proxychains nmap –n –sT -sV -PN -p 80,22,443,445 192.168.168.2-254

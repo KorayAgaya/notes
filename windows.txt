@@ -149,6 +149,7 @@ dir c:\*.pptx /s                        # Show all PowerPoint docs.
 dir c:\*.doc /s                         # Show all Word docs.
 dir c:\*.docx /s                        # Show all Word docs.
 dir c:\*.pdf /s                         # Show all PDFs.
+dir C:\* /a/s/b > dosyalar.txt          # Tüm Klasörleri dosyalar.txt içerisine yazar
 ------------------------------------------------------------------------------------------------------
 
 # Firewall
@@ -373,6 +374,14 @@ DNS bilgileri
 
  
 Dosya ve klasör işlemleri
+
+
+findstr /sip root C:\wamp64\www\*.*
+
+  /s hedef dizin ve altındaki tüm dizinlerde arama yapmak için kullanılır
+  /i ignore case anlamına gelir
+  /p sadece yazılabilir karakterler içeren dosyalar içinde arama yapmamızı sağlar
+
 
 	* dir /a C:\Users\Mehmet\Downloads\*.pdf
 	* tree /f /a

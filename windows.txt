@@ -376,7 +376,7 @@ DNS bilgileri
 Dosya ve klasör işlemleri
 
 
-findstr /sip root C:\wamp64\www\*.*
+findstr /sip root C:\wamp64\www\*.*      ilgili dizin içindeki herşey içinde root kelimesinin geçtiği yeri arar
 
   /s hedef dizin ve altındaki tüm dizinlerde arama yapmak için kullanılır
   /i ignore case anlamına gelir

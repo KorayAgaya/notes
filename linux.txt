@@ -330,3 +330,13 @@ rsysinfo <target IP>
 # Samba with a writeable file share
 
 smbclient -L //<target IP>
+
+----------------------------------------------------------
+
+LinEnum - https://github.com/rebootuser/LinEnum
+
+Linuxprivchecker - https://www.securitysift.com/download/linuxprivchecker.py
+
+Unix-privesc-check - https://github.com/inquisb/unix-privesc-check
+
+Basic Linux Privilege Escalation - https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/

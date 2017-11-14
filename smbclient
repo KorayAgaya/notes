@@ -1,2 +1,5 @@
 
-smbclient //192.168.X.X/DOCS$ -U ""%"" -c "get istenecekdosya.txt"
+ smbclient //192.168.X.X/DOCS$ -U ""%"" -c "get istenecekdosya.txt"
+
+
+//192.168.X.X/DOCS$ -U "username_yaz"%"password_yaz" -c "get istenecekdosya.txt"

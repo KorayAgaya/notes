@@ -1,5 +1,22 @@
 Kali
 
+# Error --> piix4_smbus 0000:00:007.3: Host SMBus controller not enabled!
+
+Result
+
+nano /etc/modprobe.d/64-microcode-blacklist.conf
+nano /etc/modprobe.d/amd64-microcode-blacklist.conf
+nano /etc/modprobe.d/intel-microcode-blacklist.conf
+
+
+blacklist i2c_piix4
+blacklist intel_powerclamp
+
+
+sudo update-initramfs -u -k all
+
+reboot
+
 
 # Terminal
 

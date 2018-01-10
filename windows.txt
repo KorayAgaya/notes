@@ -1,4 +1,4 @@
-RDP Localuser
+ Add Localuser on Windows
 
  ComputerName\Username
  
@@ -11,6 +11,8 @@ RDP Localuser
  net localgroup "Remote Desktop Users"
 
 Windows
+
+systeminfo | find "System Boot Time:"
 
 reg.exe save HKLM\SAM MySam
 reg.exe save HKLM\SYSTEM MySys

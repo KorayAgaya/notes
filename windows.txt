@@ -1,3 +1,15 @@
+RDP Localuser
+
+ ComputerName\Username
+ 
+ net user /add [username] [password]
+ 
+ new localgroup administrators [username] /add
+ 
+ net localgroup "Remote Desktop Users" /add [username]
+ 
+ net localgroup "Remote Desktop Users"
+
 Windows
 
 reg.exe save HKLM\SAM MySam

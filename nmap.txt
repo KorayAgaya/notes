@@ -14,3 +14,5 @@ DST/MASK      DEV  GATEWAY
 
 
 nmap -sU -pT:21,22,23,U:53,137 X.X.X.0/24
+
+nmap -PS445 -p445 --script=smb-enum-shares,smb-ls --script-args=ls.maxdepth=10,smbdomain=<DOMAIN>,smbuser=<USER>,smbpass='<PASSWORD>',smb-ls.share=PubShare <FQDN>

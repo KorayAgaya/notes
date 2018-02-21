@@ -1,0 +1,17 @@
+DDOS reflection UDP services
+=============================
+
+nmap –sU –A –PN –n –pU:19,53,123,161 –script=ntp-monlist,dns-recursion,snmp-sysdescr 192.168.1.0/24
+
+HTTP SERVERS
+=============
+nmap --script=http-title 192.168.1.0/24
+
+nmap --script=http-headers 192.168.1.0/24
+
+nmap --script=http-enum 192.168.1.0/24
+
+SAMBA SCAN
+==========
+
+nmap -p139,445 --open -sV --script=smb* -iL all-ip-new.txt

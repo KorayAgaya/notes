@@ -1,3 +1,11 @@
+Display the reason a port
+=========================
+nmap --reason 192.168.1.1 
+
+Show all packets sent and received
+=================================
+nmap --packet-trace 192.168.1.1
+
 DDOS reflection UDP services
 =============================
 
@@ -13,5 +21,12 @@ nmap --script=http-enum 192.168.1.0/24
 
 SAMBA SCAN
 ==========
+nmap -p139,445 --open -sV --script=smb* -iL xxx.txt
 
-nmap -p139,445 --open -sV --script=smb* -iL all-ip-new.txt
+UDP and TCP Port Scan
+=====================
+nmap -p U:53,T:21-25,80  192.168.1.0/24
+
+Excluding hosts/networks
+========================
+nmap 192.168.1.0/24 --exclude 192.168.1.5,192.168.1.254

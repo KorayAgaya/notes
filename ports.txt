@@ -1,3 +1,5 @@
+nmap --script-updatedb
+
 Display the reason a port
 =========================
 nmap --reason 192.168.1.1 
@@ -6,9 +8,19 @@ Show all packets sent and received
 =================================
 nmap --packet-trace 192.168.1.1
 
+No Ports Scan
+=============
+nmap -iR 10 -PS22-25,80,115,1055 -v -sn 
+
+nmap 192.168.1.1-1/24 -PR -sn -vv   => No ports scan, ARP Discovery
+
+nmap -iR 10 -sn -traceroute         => No ports scan, Traceroute random targets
+
+nmap 192.168.1.1-50 -sL --dns-server 192.168.1.1 => Query the Internal DNS for hosts, list targets only
+
+
 DDOS reflection UDP services
 =============================
-
 nmap –sU –A –PN –n –pU:19,53,123,161 –script=ntp-monlist,dns-recursion,snmp-sysdescr 192.168.1.0/24
 
 HTTP SERVERS
@@ -28,6 +40,10 @@ nmap -p139,445 --open -sV --script=smb* -iL xxx.txt
 UDP and TCP Port Scan
 =====================
 nmap -p U:53,T:21-25,80  192.168.1.0/24
+
+DDOS reflection UDP services
+============================
+nmap –sU –A –PN –n –pU:19,53,123,161 –script=ntp-monlist,dns-recursion,snmp-sysdescr 192.168.1.0/24
 
 Excluding hosts/networks
 ========================

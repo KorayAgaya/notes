@@ -44,6 +44,11 @@ UDP and TCP Port Scan
 =====================
 nmap -p U:53,T:21-25,80  192.168.1.0/24
 
+
+DNS RECURSION
+==============
+nmap -sU -p53 -script=dns-recursion HOST
+
 DDOS reflection UDP services
 ============================
 nmap –sU –A –PN –n –pU:19,53,123,161 –script=ntp-monlist,dns-recursion,snmp-sysdescr 192.168.1.0/24

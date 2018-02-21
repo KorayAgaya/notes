@@ -37,6 +37,9 @@ SAMBA SCAN
 ==========
 nmap -p139,445 --open -sV --script=smb* -iL xxx.txt
 
+nmap -PS445 -p445 --script=smb-enum-shares,smb-ls --script-args=ls.maxdepth=10,smbdomain=<DOMAIN>,smbuser=<USER>,smbpass='<PASSWORD>',smb-ls.share=PubShare <FQDN>
+
+
 UDP and TCP Port Scan
 =====================
 nmap -p U:53,T:21-25,80  192.168.1.0/24

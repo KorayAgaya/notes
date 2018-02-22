@@ -12,7 +12,8 @@ DST/MASK      DEV  GATEWAY
 192.168.0.0/0 eth0
 169.254.0.0/0 eth0
 
-
+NMAP
+======
 nmap -sU -pT:21,22,23,U:53,137 X.X.X.0/24
 
 nmap -PS445 -p445 --script=smb-enum-shares,smb-ls --script-args=ls.maxdepth=10,smbdomain=<DOMAIN>,smbuser=<USER>,smbpass='<PASSWORD>',smb-ls.share=PubShare <FQDN>
@@ -21,4 +22,11 @@ nmap  -Pn -p445 --open --max-hostgroup 3 --script smb-vuln-ms17-010
 
 nmap  -pT:111,1039,1047,1048,2049,U:111,1039,1047,1048,2049 --open -iL all-ip.txt
 
+MASSCAN
+=======
+masscan X.X.X.X/21 -pU:161 --banners
+masscan X.X.X.X/21 -pU:80 --banners
+masscan X.X.X.X/21 -p8080 --banners
+masscan X.X.X.X/21 -p22 --banners
+masscan X.X.X.X/21 -p2222 --banners
 

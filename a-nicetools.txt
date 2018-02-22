@@ -27,3 +27,20 @@ Get Hardware Information
 dmidecode | less
 dmidecode -q -t memory | less
 dmidecode -q -t cache
+
+
+Cross Compiling Exploits
+=======================
+gcc -m32 -o output32 hello.c (32 bit)
+gcc -m64 -o output hello.c (64 bit)
+
+gcc -o exploit exploit.c
+
+Compile Windows .exe on Linux
+=============================
+i586-mingw32msvc-gcc exploit.c -lws2_32 -o exploit.exe
+
+
+
+
+

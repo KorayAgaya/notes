@@ -2,11 +2,11 @@ Print Host interfaces and Routes
 
 nmap --iflist
 
-Starting Nmap 4.11 ( http://www.insecure.org/nmap/ ) at 2013-11-11 17:07 EST
+Starting Nmap 4.11 ( http://www.insecure.org/nmap/ ) at 
 ************************INTERFACES************************
 DEV  (SHORT) IP/MASK          TYPE     UP MAC
 lo   (lo)    127.0.0.1/8      loopback up
-eth0 (eth0)  192.168.0.100/24 ethernet up 08:00:27:11:C7:89
+eth0 (eth0)  192.168.0.100/24 ethernet up xx:xx:xx:xx:xx
 **************************ROUTES**************************
 DST/MASK      DEV  GATEWAY
 192.168.0.0/0 eth0
@@ -22,6 +22,8 @@ nmap  -Pn -p445 --open --max-hostgroup 3 --script smb-vuln-ms17-010
 
 nmap  -pT:111,1039,1047,1048,2049,U:111,1039,1047,1048,2049 --open -iL all-ip.txt
 
+nmap -iL all-ip.txt --script ssh-hostkey --script-args ssh_hostkey=all
+
 MASSCAN
 =======
 masscan X.X.X.X/21 -pU:161 --banners
@@ -30,3 +32,6 @@ masscan X.X.X.X/21 -p8080 --banners
 masscan X.X.X.X/21 -p22 --banners
 masscan X.X.X.X/21 -p2222 --banners
 
+FPING
+=====
+fping -c1 -gds 10.251.0.0/17 2>&1| egrep -v "ICMP|xmt"

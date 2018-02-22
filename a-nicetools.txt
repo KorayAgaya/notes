@@ -48,6 +48,10 @@ snmp-check -t X.X.X.X -c public
 snmpwalk -c public -v 1 X.X.X.X [VALUE]
 hydra -P passwords.txt -v X.X.X.X snmp
 
+NCRACK
+========
+ncrack -vv --user administrator -P passwords.txt rdp://X.X.X.X,CL=1
 
+rdesktop X.X.X.X
 
 

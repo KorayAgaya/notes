@@ -45,7 +45,7 @@ SNMP
 ====
 onesixtyone -c communities.txt X.X.X.X
 snmp-check -t X.X.X.X -c public
-snmpwalk -c public -v 1 X.X.X.X [MIB_TREE_VALUE]
+snmpwalk -c public -v 1 X.X.X.X [VALUE]
 hydra -P passwords.txt -v X.X.X.X snmp
 
 

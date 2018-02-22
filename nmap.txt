@@ -24,6 +24,10 @@ nmap  -pT:111,1039,1047,1048,2049,U:111,1039,1047,1048,2049 --open -iL all-ip.tx
 
 nmap -iL all-ip.txt --script ssh-hostkey --script-args ssh_hostkey=all
 
+nmap -sn -iL all-ip.txt --script ip-forwarding --script-args='target=www.google.com.tr'
+
+nmap  -Pn -p445 --open --max-hostgroup 3 --script smb-vuln-ms17-010 -iL  all-ip.txt
+
 MASSCAN
 =======
 
@@ -46,8 +50,16 @@ DIRB
 dirb http://X.X.X.X/ /usr/share/dirb/wordlists/common.txt
 dirb http://X.X.X.X/ /usr/share/dirb/wordlists/big.txt
 
+ENUM
+=====
+enum4linux -n X.X.X.X
+enum4linux -a X.X.X.X
 
+NETBIOS NAME CHECK
+===================
+nmblookup -A
 
-
-
+NBTSCAN
+=======
+nbtscan -r X.X.X.0/24
 

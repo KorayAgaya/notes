@@ -28,6 +28,8 @@ nmap -sn -iL all-ip.txt --script ip-forwarding --script-args='target=www.google.
 
 nmap  -Pn -p445 --open --max-hostgroup 3 --script smb-vuln-ms17-010 -iL  all-ip.txt
 
+nmap -sU -pU:123 -Pn -n --script=ntp-monlist -iL  all-ip.txt
+
 MASSCAN
 =======
 

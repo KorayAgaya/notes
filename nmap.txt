@@ -30,6 +30,10 @@ nmap  -Pn -p445 --open --max-hostgroup 3 --script smb-vuln-ms17-010 -iL  all-ip.
 
 nmap -sU -pU:123 -Pn -n --script=ntp-monlist -iL  all-ip.txt
 
+nmap -n -vv -sV -sU -Pn -p 161,162 --script=snmp-processes,snmp-netstat X.X.X.X
+
+
+
 MASSCAN
 =======
 

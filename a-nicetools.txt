@@ -54,4 +54,21 @@ ncrack -vv --user administrator -P passwords.txt rdp://X.X.X.X,CL=1
 
 rdesktop X.X.X.X
 
+SMB
+===
+enum4linux -a X.X.X.X
+
+rpcclient -U "" X.X.X.X
+
+ >srvinfo
+ >enumdomusers
+ >getdompwinfo
+ 
+ smbclient -L 192.168.1.10
+
+smbclient //X.X.X.X/ipc$ -U administrator
+
+smbclient //X.X.X.X/admin$ -U administrator
+ 
+ 
 

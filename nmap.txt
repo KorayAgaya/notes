@@ -26,6 +26,11 @@ nmap -iL all-ip.txt --script ssh-hostkey --script-args ssh_hostkey=all
 
 MASSCAN
 =======
+
+masscan -iL up_all-ip.txt --open --rate 60000 -p80,8080,8090,9090,8443,9443 | awk '{print $4}' |tee all.txt
+
+masscan -iL up_all-ip.txt --open --rate 60000 -p1433 -sS -Pn -n --randomize-hosts -v
+
 masscan X.X.X.X/21 -pU:161 --banners
 masscan X.X.X.X/21 -pU:80 --banners
 masscan X.X.X.X/21 -p8080 --banners
@@ -35,3 +40,14 @@ masscan X.X.X.X/21 -p2222 --banners
 FPING
 =====
 fping -c1 -gds 10.251.0.0/17 2>&1| egrep -v "ICMP|xmt"
+
+DIRB
+====
+dirb http://X.X.X.X/ /usr/share/dirb/wordlists/common.txt
+dirb http://X.X.X.X/ /usr/share/dirb/wordlists/big.txt
+
+
+
+
+
+

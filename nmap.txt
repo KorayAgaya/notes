@@ -63,3 +63,13 @@ NBTSCAN
 =======
 nbtscan -r X.X.X.0/24
 
+DNS ENUM MSF
+============
+use auxiliary/gather/enum_dns
+
+use auxiliary/scanner/upnp/ssdp_amp  &  miranda use with command line
+
+
+
+
+

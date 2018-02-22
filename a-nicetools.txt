@@ -1,2 +1,29 @@
-socat Tools
+Ngrep Tools
 =============
+ngrep -l -q -d eth0 "^GET |^POST " tcp and port 80 and port 443
+
+Listening TCP Connection
+========================
+tcpick
+
+netwox,httest
+
+View all socket and Listening Socket
+====================================
+ss -a
+ss -l
+ss -l -p 
+
+Dhcpx is a DHCP server training tool
+===================================
+dhcpx -i eth0 -vvv 
+
+SSL / TLS connection attack test
+================================
+sslsniff -t -p <port> -w <log file> -m IPSCACLASEA1.crt -c <CertificateConverter> 
+
+Get Hardware Information
+========================
+dmidecode | less
+dmidecode -q -t memory | less
+dmidecode -q -t cache

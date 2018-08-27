@@ -226,6 +226,12 @@ SQL INJECTION with NMAP
 nmap -p80 --script http-sql-injection <target_ip>
 
 
+Web-Methods
+==========
+
+nmap --script=http-methods.nse --script-args http-methods.retest=1  X.X.X.X
+
+
 OTHER
 =======
 

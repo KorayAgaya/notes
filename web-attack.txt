@@ -217,6 +217,10 @@ nmap -p80 --script http-stored-xss --script-args httpspider.maxpagecount=200 htt
 
 nmap -p80 --script http-dombased-xss --script-args httpspider.maxpagecount=200 httpspider.maxpagecount=200  
 
+
+nmap -p80 --script http-phpself-xss --script-args httpspider.maxpagecount=200 httpspider.maxpagecount=200 
+
+
 XST with NMAP
 =============
 

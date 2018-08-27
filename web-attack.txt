@@ -1,0 +1,28 @@
+XSS SCAN with NMAP
+===================
+
+nmap -p80 --script http-stored-xss --script-args httpspider.maxpagecount=200 httpspider.maxpagecount=200  
+
+XST with NMAP
+=============
+
+nmap -p80 --script http-methods,http-trace --script-args http-methods.retest <target_ip>
+
+
+SQL INJECTION with NMAP
+=======================
+
+nmap -p80 --script http-sql-injection <target_ip>
+
+
+OTHER
+=======
+
+nmap -p80 --script http-unsafe-output-escaping <target_ip>
+
+PHP based server for checking XSS vulnerability.
+
+nmap -p80 --script http-phpself-xss,http-unsafe-output-escaping <target_ip>
+
+
+

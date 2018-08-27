@@ -227,6 +227,14 @@ XST with NMAP
 nmap -p80 --script http-methods,http-trace --script-args http-methods.retest <target_ip>
 
 
+XSSER ( Automatic tool for pentesting XSS attacks )
+===================================================
+
+xsser -c100 --Cw=4 -u "http://localhost.com"
+
+More Information =>  http://securityinfowall.blogspot.com/2012/06/xsser-automatic-tool-for-pentesting-xss.html
+
+
 SQL INJECTION with NMAP
 =======================
 

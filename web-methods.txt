@@ -1,0 +1,4 @@
+Web-Methods
+==========
+
+nmap --script=http-methods.nse --script-args http-methods.retest=1  X.X.X.X

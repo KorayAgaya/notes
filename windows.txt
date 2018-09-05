@@ -1,3 +1,4 @@
+
  Add Localuser on Windows
 
  ComputerName\Username
@@ -84,7 +85,10 @@ global.exe "domain admins" \\dc-controller
 
 dir /s /p *password*.*                       # Windows
 ------------------------------------------------------------------------------------------------------
-
+# Get System Information
+ 
+system info | finest /B OS
+ 
 # net commands
 
 net accounts                                 # Local password policies.

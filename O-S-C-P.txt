@@ -11,6 +11,14 @@ https://www.abatchy.com/tag/OSCE%20Prep/
 
 https://www.abatchy.com/2017/03/osce-study-plan
 
+https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-1-is-oscp-for-you-b57cbcce7440
+
+https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-2-workflow-and-documentation-tips-9dd335204a48
+
+https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97
+
+https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
+
 Github Work Link
 =================
 
@@ -30,11 +38,6 @@ https://github.com/burntmybagel/OSCP-Prep
 
 https://github.com/slyth11907/Cheatsheets
 
-https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-1-is-oscp-for-you-b57cbcce7440
-
-https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-2-workflow-and-documentation-tips-9dd335204a48
-
-https://medium.com/@lodestarluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97
 
 Buffer OverFlow
 ================

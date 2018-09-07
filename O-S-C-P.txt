@@ -109,7 +109,15 @@ Start-Process powershell -Credential $pp -ArgumentList '-noprofile -command &{St
 --If however you want to run the powershell from a cmd prompt, 
 --you can run store the above command in a xyz.ps1 file and run it in cmd as below:
 
-powershell -ExecutionPolicy Bypass -File xyz.ps1
+powershell -ExecutionPolicy Bypass -File xyz.ps1 
+
+---The Set-ExecutionPolicy cmdlet enables you to determine which Windows PowerShell scripts (if any) will be allowed to run on ---your computer. Windows PowerShell has four different execution policies:
+
+---Restricted – No scripts can be run. Windows PowerShell can be used only in interactive mode.
+---AllSigned – Only scripts signed by a trusted publisher can be run.
+---RemoteSigned – Downloaded scripts must be signed by a trusted publisher before they can be run.
+---Unrestricted – No restrictions; all Windows PowerShell scripts can be run.
+
 
 Download files in Windows with bitsadmin
 =========================================

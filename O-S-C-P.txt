@@ -1,3 +1,17 @@
+Lesson
+======
+
+https://localhost.exposed/path-to-oscp/
+
+https://www.hacksplaining.com/lessons
+
+https://www.abatchy.com/search/label/OSCP%20Prep
+
+https://www.abatchy.com/tag/OSCE%20Prep/
+
+Github Work Link
+=================
+
 https://github.com/Sturmrufer/OSCP-Survival-Guide_
 
 https://github.com/adon90/pentest_compilation
@@ -11,6 +25,11 @@ https://github.com/kyawthiha7/oscp_notes
 https://github.com/burntmybagel/OSCP-Prep
 
 https://github.com/slyth11907/Cheatsheets
+
+Buffer OverFlow
+================
+
+https://sploitfun.wordpress.com/2015/05/08/classic-stack-based-buffer-overflow/
 
 
 exploit most of the machines below tools:

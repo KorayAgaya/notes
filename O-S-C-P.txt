@@ -1,4 +1,20 @@
+https://github.com/Sturmrufer/OSCP-Survival-Guide_
+
+https://github.com/adon90/pentest_compilation
+
+https://github.com/mikaelkall/OSCP-cheat-sheet
+
+https://github.com/cokebottle/oscp-tools
+
+https://github.com/kyawthiha7/oscp_notes
+
+https://github.com/burntmybagel/OSCP-Prep
+
+https://github.com/slyth11907/Cheatsheets
+
+
 exploit most of the machines below tools:
+==========================================
 
 --Nmap, Netcat for port scanning and testing vulnerabilities
 --Dirbuster, Gobuster, Nikto and Burpsuite for Web application scanning

@@ -1,7 +1,9 @@
 List Payloads
 =============
 
-msfvenom -l
+msfvenom --list (payloads, encoders, nops, platforms, archs, formats, all)
+
+msfvenom --list payloads
 
 Binaries Linux
 =============

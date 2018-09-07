@@ -23,6 +23,18 @@ https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
 
 https://medium.com/@lodestarluke/haklukes-guide-to-hacking-without-metasploit-1bbbe3d14f90
 
+****IMPORTANT*******
+=====================
+“windows/shell_reverse_tcp” and “windows/shell/reverse_tcp”. The first one is unstaged, while the second is staged. 
+You will see the same naming convention with many other payloads too.
+
+What’s the difference between staged and unstaged? 
+If you use an unstaged payload, the entire payload is sent in one hit and executed on the target machine.
+This means that you can catch the shell with a simple netcat listener and it will work fine. 
+If you’re using a staged payload, you need to use a Metasploit multi handler to catch the shell (this is allowed in the exam, by the way!). 
+If you attempt to use a netcat listener to catch the shell, the connection will be received and then die instantly. 
+Staged payloads are a smaller initial payload which then downloads the full payload from the Metasploit handler on your local box. 
+
 Github Work Link
 =================
 

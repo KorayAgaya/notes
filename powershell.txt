@@ -1,5 +1,17 @@
-PowerShell
+Meterpreter Powershell
+======================
 
+load powershell
+
+powershell_import /home/test/Desktop/Evil.ps
+
+powershell_execute "$PSVersionTable"
+
+powershell_execute "Get-Service -Name BITS"
+
+
+PowerShell
+===========
 
 Write-Host 'Hello World!'
 

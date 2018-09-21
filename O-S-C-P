@@ -204,12 +204,3 @@ Try avoiding Metasploit at all costs. Neither exploits nor meterpreter shells.
 (However I had to use them at few places where I needed to use shellcode or needed to quickly migrate my shell from an unstable exploit/process)
 Only use msfvenom for building shellcode.
 Use netcat for reverse shells.
-
-
-
-
-
-
-
-
-

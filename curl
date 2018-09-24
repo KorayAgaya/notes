@@ -1,0 +1,5 @@
+
+Birebir Dosya İndirme
+======================
+
+curl -k https://X.X.X.X:12380/blog/wp-content/uploads/138XXXX.jpeg > resim.jpeg

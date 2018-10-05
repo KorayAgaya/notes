@@ -14,3 +14,9 @@ ssh -L 2338:IC_IP:3389 ksftp_user@sftp.XXXXX.com.tr -N
 and 
 
 rdesktop localhost:2338
+
+
+SSH login Upgrade to Metasploit
+===============================
+
+auxiliary/scanner/ssh/ssh_login)

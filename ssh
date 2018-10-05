@@ -4,3 +4,13 @@ SSH reverse Connection
 Reverse connection on Linux and scan 127.0.0.1 service POSTGRESL
 
 ssh test@X.X.X.X -L 5432:localhost:5432
+
+
+Local Port Forwading
+=====================
+
+ssh -L 2338:IC_IP:3389 ksftp_user@sftp.XXXXX.com.tr -N
+
+and 
+
+rdesktop localhost:2338

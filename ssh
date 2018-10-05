@@ -19,4 +19,4 @@ rdesktop localhost:2338
 SSH login Upgrade to Metasploit
 ===============================
 
-auxiliary/scanner/ssh/ssh_login)
+auxiliary/scanner/ssh/ssh_login

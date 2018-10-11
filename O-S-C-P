@@ -28,6 +28,31 @@ https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
 
 https://medium.com/@lodestarluke/haklukes-guide-to-hacking-without-metasploit-1bbbe3d14f90
 
+Windows Privilege Escalation
+=============================
+
+http://www.fuzzysecurity.com/tutorials/16.html
+
+https://www.youtube.com/watch?v=kMG8IsCohHA
+
+https://www.youtube.com/watch?v=PC_iMqiuIRQ
+
+https://github.com/GDSSecurity/Windows-Exploit-Suggester
+
+Linux Privilege Escalation
+============================
+
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+
+https://www.youtube.com/watch?v=dk2wsyFiosg
+
+Privilege escalation recon scripts
+====================================
+
+http://www.securitysift.com/download/linuxprivchecker.py
+
+http://pentestmonkey.net/tools/audit/unix-privesc-check
+
 ****IMPORTANT*******
 =====================
 “windows/shell_reverse_tcp” and “windows/shell/reverse_tcp”. The first one is unstaged, while the second is staged. 

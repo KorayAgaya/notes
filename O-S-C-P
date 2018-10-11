@@ -88,9 +88,10 @@ If you attempt to use a netcat listener to catch the shell, the connection will 
 Staged payloads are a smaller initial payload which then downloads the full payload from the Metasploit handler on your local box. 
 
 
-If you read these two pages 10 times over, you should be safe:
+OSCP LINK:
 
     Exam requirements (also contains reporting requirements): https://support.offensive-security.com/#!oscp-exam-guide.md
+    
     PWK support page: https://support.offensive-security.com/#!pwk-support.md
 
 Github Work Link

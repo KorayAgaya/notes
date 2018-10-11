@@ -1,1 +1,13 @@
-ss
+
+PrivilageEscalation
+===================
+
+Linux
+
+chkrootkit -V
+
+chkrootkit version 0.49
+
+EXPLOIT
+=======
+https://www.exploit-db.com/exploits/33899/

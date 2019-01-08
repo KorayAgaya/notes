@@ -1,0 +1,8 @@
+wrk, for benchmarking your HTTP APIs
+====================================
+
+wrk -t12 -c200 -d5s https://127.0.0.1:8001/hello
+
+Notes
+======
+We can check how well the /hello endpoint performs using wrk (with 12 threads, 200 connections, for 5 seconds):

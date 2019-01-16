@@ -3,3 +3,9 @@ Birebir Dosya İndirme
 ======================
 
 curl -k https://X.X.X.X:12380/blog/wp-content/uploads/138XXXX.jpeg > resim.jpeg
+
+
+PHP Dosya İçeriğini Kod yapısında Gösterme
+==========================================
+
+curl http://X.X.X.X/fileRead.php -d 'file=fileRead.php'|jq -r ."file"

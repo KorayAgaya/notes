@@ -6,7 +6,7 @@ locate -r '\.nse$' | xargs grep categories | grep 'default\|version'
 
 locate -r '\.nse$' | xargs grep categories | grep 'default\|version' | grep smb
 
-locate -r '\.nse$' | xargs grep categories | grep 'default\|version\safe' | grep smb
+locate -r '\.nse$' | xargs grep categories | grep 'default\|version\|safe' | grep smb
 
 nmap -sV --script="version,discovery"
 

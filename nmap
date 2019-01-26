@@ -25,7 +25,7 @@ DST/MASK      DEV  GATEWAY
 192.168.0.0/0 eth0
 169.254.0.0/0 eth0
 
-NMAP
+NMAP http://www.sh1katagana1.com/hacking-cheat-sheets.html
 ======
 
 nmap -sV --script="version,discovery"

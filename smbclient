@@ -1,3 +1,14 @@
+DOWNLOAD FILE with SMBCLIENT RECURSE ON and PROMPT OFF
+===================================
+
+smbclient //X.X.X.X/Replication
+
+smb: \> mget*
+NT_STATUS_NO_SUCH_FILE listing \*
+
+smb: \> recurse ON
+smb: \> prompt OFF
+smb: \> mget*
 
 SMBCLIENT
 =========

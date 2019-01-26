@@ -1,0 +1,4 @@
+
+GetADUSers.py -all -dc-ip X.X.X.X active.htb\svg_tgs
+
+GetADUSers.py -all active.htb\svg_tgs -dc-ip X.X.X.X 

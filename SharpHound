@@ -1,0 +1,5 @@
+
+Dont Forget Change DNS IP to DOMAIN Server IP 
+==============================================
+
+./SharpHound.exe -c all-d active.htb --domaincontroller 10.10.10.100

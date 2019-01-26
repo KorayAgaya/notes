@@ -1,0 +1,10 @@
+
+smbmap -R Replication -H X.X.X.X 
+
+Download Groups.xml
+====================
+
+smbmap -R Replication -H X.X.X.X -A Groups.xml -q
+
+Download Path => /usr/share/smbmap/X.X.X.X-Repliction_XXXXX/XXXX/XXXXX/Groups.xml
+

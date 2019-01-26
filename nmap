@@ -147,6 +147,36 @@ use auxiliary/gather/enum_dns
 
 use auxiliary/scanner/upnp/ssdp_amp  &  miranda use with command line
 
+NSE script categories 
+=====================
+
+* auth: This category is for scripts related to user authentication. Nmap --script auth 10.10.10.12 
+
+* broadcast: This is a very interesting category of scripts that use broadcast petitions to gather information. 
+
+* brute: This category is for scripts that help conduct brute-force password auditing. 
+
+* default: This category is for scripts that are executed when a script scan is executed (-sC). Nmap --script default 10.10.10.12 
+
+* discovery: This category is for scripts related to host and service discovery. This category of scripts is ideal when we need to have as much information as possible for a specific target. Nmap --script discovery 10.10.10.12 
+
+* dos: This category is for scripts related to denial of service attacks. 
+
+* exploit: This category is for scripts that exploit security vulnerabilities. 
+
+* external: This category is for scripts that depend on a third-party service. performs an automatic Web Whois to the target and discovers additional information like the geographical location,the name of the organization and the net range. Nmap --script external scanme.nmap.org 
+
+* fuzzer: This category is for NSE scripts that are focused on fuzzing. 
+
+* intrusive: This category is for scripts that might crash something or generate a lot of network noise. Scripts that system administrators may consider intrusive belong to this category. 
+
+* malware: This category is for scripts related to malware detection. 
+
+* safe: This category is for scripts that are considered safe in all situations. Nmap - -script safe 10.10.10.12 
+
+* version: This category is for scripts that are used for advanced versioning. 
+
+* vuln: This category is for scripts related to security vulnerabilities 
 
 
 

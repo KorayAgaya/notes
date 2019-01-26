@@ -8,6 +8,8 @@ locate -r '\.nse$' | xargs grep categories | grep 'default\|version' | grep smb
 
 locate -r '\.nse$' | xargs grep categories | grep 'default\|version\safe' | grep smb
 
+nmap -sV --script="version,discovery"
+
 
 Print Host interfaces and Routes
 
@@ -26,9 +28,22 @@ DST/MASK      DEV  GATEWAY
 NMAP
 ======
 
+nmap -sV --script="version,discovery"
+
 [+] NMAP Update
 
 nmap --script-updatedb
+
+[+] NMAP Script Help
+
+ nmap --script-help "ssh-*"
+                              nmap --scan-delay 5s -g 53 -Pn -n -sS --open -p22 --script=sshv1 
+                              
+ nmap --script-help "smtp-*
+                              nmap --scan-delay 5s -g 53 -Pn -n -sS --open -p25 --script=smtp-brute,smtpenum-users
+                              
+ nmap --script-help "dns-*"
+                              nmap --scan-delay 5s -g 53 -Pn -n -sS --open -p53 --script=dns-cache-snoop,dnsservice-discovery,dns-update,dns-zone-transfer,dns-recursion
 
 [+] NMAP Scans
 

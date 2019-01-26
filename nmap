@@ -26,6 +26,10 @@ DST/MASK      DEV  GATEWAY
 NMAP
 ======
 
+[+] NMAP Update
+
+nmap --script-updatedb
+
 [+] NMAP Scans
 
 [+] Nmap ping scan

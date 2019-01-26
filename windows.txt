@@ -1,7 +1,13 @@
+RunAs Windows Command Line
+===========================
 
+runas /netonly /user:DOMAIN-ADI\USER-ADI cmd
+
+GELEN EKRAN => dir \\X.X.X.X\Users
+ 
+ 
  Add Localuser on Windows
-
- ComputerName\Username
+ ========================
  
  net user /add [username] [password]
  
@@ -12,6 +18,7 @@
  net localgroup "Remote Desktop Users"
 
 Windows
+=======
 
 systeminfo | find "System Boot Time:"
 

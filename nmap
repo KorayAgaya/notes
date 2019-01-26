@@ -1,3 +1,14 @@
+locate -r '\.nse$' 
+
+locate -r '\.nse$' | xargs grep categories
+
+locate -r '\.nse$' | xargs grep categories | grep 'default\|version'
+
+locate -r '\.nse$' | xargs grep categories | grep 'default\|version' | grep smb
+
+locate -r '\.nse$' | xargs grep categories | grep 'default\|version\safe' | grep smb
+
+
 Print Host interfaces and Routes
 
 nmap --iflist

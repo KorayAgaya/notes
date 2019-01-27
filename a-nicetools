@@ -1,3 +1,7 @@
+Copy File into
+==============
+cat copiedfile.txt |xclip -selection clipboard
+
 Ngrep Tools
 =============
 ngrep -l -q -d eth0 "^GET |^POST " tcp and port 80 and port 443

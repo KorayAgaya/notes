@@ -1,5 +1,7 @@
 https://github.com/jivoi/pentest/tree/master/shell
 
+Mount remote tmp folder --> https://touhidshaikh.com/blog/?p=788
+
 Bash
 =====
 

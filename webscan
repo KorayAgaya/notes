@@ -1,0 +1,6 @@
+
+gobuster -e -u http://X.X.X.X/ -w /usr/share/wordlists/dirb/big.txt
+
+dirb http://X.X.X.X
+
+nikto -h http://X.X.X.X

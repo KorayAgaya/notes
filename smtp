@@ -1,0 +1,76 @@
+
+
+HELP: Komutlar listelenir.
+HELO: SMTP sunucusu ile SMTP iletişimi başlatılır.
+EHLO: Genişletilmiş SMTP iletişimi için kullanılır.
+AUTH: İstemcinin kimlik doğrulaması için kullanılır.
+MAIL FROM: E-posta göndericisi belirtilir.
+RCPT TO: E-posta alıcısı belirtilir.
+DATA: E-postanın içeriği belirtilir. E-posta içeriği, “.” ifadesi içeren satır ile tamamlanmış olur.
+SUBJECT: E-postanın konusu belirtilir.
+QUIT: Oturum sonlandırılır.
+VRFY: E-posta kutusu alıcısı doğrulanır.
+EXPN: E-posta listesi doğrulanır.
+STARTTLS: SMTP iletişimi TLS üzerinden başlatılır.
+RSET: E-posta iletişimi kesilir.
+
+SMTP üzerinden mail gönderme
+============================
+
+sendEmail -f gonderici@GondereninEtkiAlani.com -t alici@AlaninEtkiAlani.com -cc alici-cc@AlaninEtkiAlani.com -bcc alici-bcc@EtkiAlani.com -s HedefIP -u ElektronikPostaKonusu -M ElektronikPostaIcerigi -a GonderilecekDosyaEki.pdf -xu Kullanici -xp Parola
+MSF: auxiliary/client/smtp/emailer
+FakeSMTP: https://github.com/Nilhcem/FakeSMTP
+java -jar fakeSMTP-VERSION.jar -s -b -p HedefPort HedefIP -o SonucDizini
+ 
+
+SMTP trafiği dinleme
+=====================
+
+MSF: auxiliary/server/capture/smtp
+ 
+
+Sunucunun adı ve etki alanı tespit etme
+========================================
+
+Nmap: smtp-ntlm-info –script-args smtp-ntlm-info.domain=EtkiAlaniAdi
+MSF: auxiliary/scanner/smtp/smtp_ntlm_domain
+ 
+
+SMTP Relay tespiti gerçekleştirme
+===================================
+
+Nmap: smtp-open-relay –script-args smtp-open-relay.domain=EtkiAlaniAdi
+MSF: auxiliary/scanner/smtp/smtp_relay
+ 
+
+Desteklenen SMTP komutları listeleme
+=====================================
+
+Nmap: smtp-commands –script-args smtp-commands.domain=EtkiAlaniAdi
+ 
+
+SMTP sorguları gönderme
+========================
+
+MSF: auxiliary/fuzzers/smtp/smtp_fuzzer
+ 
+
+Geçerli kullanıcılar tespit etme
+===================================
+
+Nmap: smtp-enum-users –script-args smtp-enum-users.methods={EXPN,RCPT,VRFY} –> Kimlik doğrulaması yoksa
+MSF: auxiliary/scanner/smtp/smtp_enum
+smtp-user-enum -M SMTPKomutu -D EtkiAlaniAdi -U Kullanicilar.liste -T HedefIPler.liste -p HedefPort
+ismtp -h HedefIP:HedefPort -e Kullanicilar.liste
+ 
+
+Geçerli kullanıcılar veya parolalar tespit etme
+================================================
+
+Nmap: smtp-brute –script-args userdb=Kullanicilar.liste,passdb=Parolalar.liste
+Kaba kuvvet araçları
+hydra -t 2 -L Kullanicilar.liste -P Parolalar.liste -M HedefIPler.liste -s HedefPort smtp
+medusa -t 2 -T 2 -U Kullanicilar.liste -P Parolalar.liste -H HedefIPler.liste -n HedefPort -M smtp
+ncrack -g CL=2 -U Kullanicilar.liste -P Parolalar.liste -iL HedefIPler.liste -p smtp:HedefPort -oA Sonuc
+patator smtp_login host=HedefIP user=FILE1 password=FILE0 0=Kullanicilar.liste 1=Parolalar.liste -x ignore:fgrep=’incorrect password or account name’
+

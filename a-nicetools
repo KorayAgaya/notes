@@ -68,6 +68,8 @@ rpcclient -U "" X.X.X.X
  >enumdomusers
  >getdompwinfo
  
+ net rpc -W DOMAIN.LOCAL -U user10 -S X.X.X.X shell
+ 
  smbclient -L 192.168.1.10
 
 smbclient //X.X.X.X/ipc$ -U administrator

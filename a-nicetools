@@ -70,11 +70,16 @@ rpcclient -U "" X.X.X.X
  
  net rpc -W DOMAIN.LOCAL -U user10 -S X.X.X.X shell
  
+ net rpc> user
+ net rpc user> show 
+ net rpc user> show user01
+ user rid: 1105, group rid: 513
+ 
  smbclient -L 192.168.1.10
 
-smbclient //X.X.X.X/ipc$ -U administrator
+ smbclient //X.X.X.X/ipc$ -U administrator
 
-smbclient //X.X.X.X/admin$ -U administrator
+ smbclient //X.X.X.X/admin$ -U administrator
  
  
 

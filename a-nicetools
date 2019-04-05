@@ -67,6 +67,9 @@ rpcclient -U "" X.X.X.X
  >srvinfo
  >enumdomusers
  >getdompwinfo
+ >querydominfo
+ >netshareenum
+ >netshareenumall
  
  net rpc -W DOMAIN.LOCAL -U user10 -S X.X.X.X shell
  

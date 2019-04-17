@@ -718,3 +718,5 @@ listenaddress=0.0.0.0 connectport=8080 connectaddress=10.10.10.20
 
 netstat -an
 netsh interface portproxy
+
+xfreerdp /d:DOM /u:admin /p:password /v:10.10.10.10:49162

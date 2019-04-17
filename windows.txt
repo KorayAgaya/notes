@@ -702,3 +702,18 @@ System hosts file for local translation of host names to IP addresses.
 unattend.txt, unattend.xml, unattended.xml, sysprep.inf	Used in the automated deployment of Windows images and can contain user accounts. Sometimes found in the %WINDIR%\Panther\ directory.
 
 
+Pivoting in Windows Using Native Port Forwarding
+=================================================
+
+C:\>netsh interface portproxy add v4tov4 listenport=<lport>
+listenaddress=<lhost> connectport=<rport> connectaddress=<rhost>
+
+<lport> - local port to listen on
+<lhost> - local address to bind to
+<rport> - remote port
+<rhost> - remote host
+
+netsh interface portproxy add v4tov4 listenport=1194
+listenaddress=0.0.0.0 connectport=8080 connectaddress=10.10.10.20
+
+netstat -an

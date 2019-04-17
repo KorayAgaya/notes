@@ -720,3 +720,5 @@ netstat -an
 netsh interface portproxy
 
 xfreerdp /d:DOM /u:admin /p:password /v:10.10.10.10:49162
+
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Network%20Pivoting%20Techniques.md

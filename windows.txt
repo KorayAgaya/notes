@@ -1,3 +1,11 @@
+mingw3
+=========
+
+For 64-bit use: x86_64-w64-mingw32-gc++
+
+For 32-bit use: i686-w64-mingw32-g++
+
+
 Operating System               Version Number
 ===============================================
 

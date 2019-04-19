@@ -1,0 +1,15 @@
+Bad Char
+=========
+x00 – The null character is often represented as the escape sequence \0 in source code string literals or character constants.
+x0a – \n
+x0d – \r
+
+Bad Char
+==========
+
+Char   Dec    Oct    Hex   Linux
+(nl)    10    0012   x0a   \n
+(cr)    13    0015   x0d   \r
+A       65    0101   x41
+B       66    0102   x42
+C       67    0103   x43

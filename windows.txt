@@ -3,7 +3,8 @@ mingw3
 
 For 64-bit use: x86_64-w64-mingw32-gc++
 
-For 32-bit use: i686-w64-mingw32-g++
+For 32-bit use: i686-w64-mingw32-g++  => i686-w64-mingw32-gcc 25912.c -o exploit.exe -lws2_32
+
 
 
 Operating System               Version Number

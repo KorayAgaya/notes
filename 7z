@@ -2,3 +2,9 @@ ZIP File Information
 =====================
 
 7z l -slt XXXX.zip
+
+
+Encrypt Zip File
+================
+
+zip2john XXXX.zip

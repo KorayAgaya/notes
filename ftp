@@ -1,0 +1,4 @@
+
+Download Everything ( All File)
+
+wget -m --no-passive ftp://anonymous:anonymous@X.X.X.X

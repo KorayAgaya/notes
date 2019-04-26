@@ -4,3 +4,5 @@ mdb-tables XxxX.mdb
 for i in $(mdb-tables XxxX.mdb); do echo $i; done
 
 for i in $(mdb-tables XxxX.mdb); do mdb-export backup.mdb $i; done
+
+for i in $(mdb-tables XxxX.mdb); do mdb-export backup.mdb $i > tables/$i; done

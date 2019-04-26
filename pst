@@ -1,0 +1,9 @@
+
+ readpst 'XXXXX.pst'  
+ 
+ Output
+ =======
+ 
+ XXXXX.mbox
+ 
+ less 'XXXXX.mbox'

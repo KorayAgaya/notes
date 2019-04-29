@@ -1,0 +1,8 @@
+./Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+/usr/share/seclists# find . | grep -i tomcat
+
+./Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+./Discovery/Web-Content/ApacheTomcat.fuzz.txt
+./Discovery/Web-Content/tomcat.txt
+
+less 

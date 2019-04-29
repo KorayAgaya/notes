@@ -5,4 +5,28 @@
 ./Discovery/Web-Content/ApacheTomcat.fuzz.txt
 ./Discovery/Web-Content/tomcat.txt
 
-less 
+less ./Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+
+admin:
+admin:admanager
+admin:admin
+admin:admin
+ADMIN:ADMIN
+admin:adrole1
+admin:adroot
+admin:ads3cret
+admin:adtomcat
+admin:advagrant
+admin:password
+admin:password1
+admin:Password1
+admin:tomcat
+admin:vagrant
+both:admanager
+both:admin
+both:adrole1
+both:adroot
+both:ads3cret
+both:adtomcat
+both:advagrant
+

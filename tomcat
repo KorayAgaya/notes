@@ -41,4 +41,5 @@ HYDRA_PROXY_HTTP=http://127.0.0.1:8080 hydra -C /usr/share/seclists/Passwords/De
 BASE64
 ======
 
-echo -n admin | base64
+echo -n admin:admin | base64
+YWRtaW46YWRtaW4=

@@ -1,0 +1,2 @@
+
+smbserver.py -smb2support PleaseSubscribe 'pwd'

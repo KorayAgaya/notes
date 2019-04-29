@@ -1,4 +1,6 @@
-./Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+TOMCAT USERNAME:PASSWORD
+==========================
+
 /usr/share/seclists# find . | grep -i tomcat
 
 ./Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt

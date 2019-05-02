@@ -1,3 +1,5 @@
+for i in $(find . -name *.ps1); do echo $i; done
+
 Powershell run Directory
 =======================
 c:\windows\syswow64\windowspowershell\v1.0\powershell whoami

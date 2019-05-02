@@ -183,6 +183,13 @@ runas /user:DOMAIN\USER /noprofile powershell.exe
 # Insert reg key to enable Wdigest on newer versions of Windows
 reg add HKLM\SYSTEM\CurrentControlSet\Contro\SecurityProviders\Wdigest /v UseLogonCredential /t Reg_DWORD /d 1
 
+Details *.bat Files
+===================
+
+[System.IO.File]::Open('C:\Users\XXXX\xxx.bat', [System.IO.FileMode]::Truncate)
+
+
+
 Other use PowerShell
 =====================
 

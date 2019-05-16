@@ -71,6 +71,7 @@ IMMUNITY
 !mona pattern_ofset 0x000000
 !mona findmsp
 !mona jmp -r ESP
+!mona jmp -m * -r esp
 !mona bytearray
 !mona compare -c c:\logs\XXXX\bytearray.bin -a 0x000000
 
@@ -268,3 +269,5 @@ Link
 
 https://gurelahmet.com/stack-tabanl%C4%B1-buffer-overflow-zafiyeti-pcman-ftp-server-2-0-7/
 https://github.com/justinsteven/dostackbufferoverflowgood/blob/master/dostackbufferoverflowgood_tutorial.pdf
+
+https://zero-day.io/buffer-overflow-introduction/

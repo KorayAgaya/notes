@@ -81,6 +81,7 @@ Find DLL
 ********
 !mona find -s "\xff\xe4" -m slmfc.dll
 mona config -set workingfolder c:mona%p
+!mona jmp -r esp -o   ( Application DLL )
 
 ============================
 

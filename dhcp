@@ -6,6 +6,8 @@ YOUTUBE
 ========
 https://www.youtube.com/watch?v=hDmBF8PSTCU
 
+![image](https://github.com/KorayAgaya/notes/blob/master/IMAGE/DHCP-SHEMA.png)
+
 DHCPDiscover Message
 ====================
 DHCP client sends a DHCP Discover broadcast on the network for finding a DHCP server. If there is no respond from a DHCP server, the client assigns itself an Automatic Private IPv4 address (APIPA).

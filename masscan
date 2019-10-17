@@ -8,3 +8,5 @@ masscan -iL ipp.txt --open --rate 60000 -p3389 | awk '{print $4}'
 masscan 0.0.0.0/0 -pU:161 --banners  #  SNMP
 
 masscan 0.0.0.0/0 -p3050,3051 --banners # Firebird Database Server
+
+masscan 0.0.0.0/0 --open --rate 60000 -p21 | awk '{print $6}' |tee free.txt

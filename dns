@@ -1,5 +1,14 @@
 DNS
 
+64.6.64.6 - verisign
+1.1.1.1 - cloudflare
+9.9.9.9 - quad9
+84.200.69.80 - dnswatch
+94.247.43.254 - opennic
+89.233.43.71 - censurfridns
+94.130.110.185 - dnsprivacy
+208.67.222.222 - opendns
+
 dnsrecon
 =========
 sudo apt-get install libavahi-compat-libdnssd1 git-core python-setuptools

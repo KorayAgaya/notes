@@ -1,0 +1,7 @@
+Link => https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?WT.mc_id=itopstalk-blog-thmaure&view=powershell-7
+
+$s = New-PSSession -HostName 137.117.136.159 -UserName Thomas
+
+Copy-Item .\windows.txt /home/thomas -ToSession $s
+
+
